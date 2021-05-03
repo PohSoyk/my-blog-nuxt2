@@ -16,7 +16,7 @@ export default {
   head() {
     return {
       titleTemplete: null,
-      title: 'ページが見つかりません | microCMSブログ',
+      title: "ページが見つかりません | PoSo's Note",
     };
   },
 };

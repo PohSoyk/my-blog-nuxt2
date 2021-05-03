@@ -133,7 +133,7 @@ export default {
   head() {
     return {
       titleTemplete: null,
-      title: 'microCMSブログ',
+      title: "PoSo's Note",
     };
   },
 };

@@ -20,20 +20,24 @@ export default {
       prefix: 'og: http://ogp.me/ns#',
       lang: 'ja',
     },
-    titleTemplete: '%s | microCMSブログ',
+    titleTemplete: "%s | PoSo's Note",
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
+        name: 'format-detection',
+        content: 'telephone=no, email=no, address=no',
+      },
+      {
         hid: 'description',
         name: 'description',
         content:
-          'microCMSはAPIベースの日本製ヘッドレスCMSです。本ブログはmicroCMSの開発メンバーがmicroCMSの使い方や技術的な内容を発信するブログです。',
+          '未経験からエンジニア転職を成功させた筆者が、プログラミング、アプリ開発の情報を中心に発信中。人生で得たスキルや知識のアウトプットを行うブログです。',
       },
       {
         hid: 'og:site_name',
         property: 'og:site_name',
-        content: 'microCMSブログ',
+        content: "PoSo's Note",
       },
       { hid: 'og:type', property: 'og:type', content: 'website' },
       {
@@ -41,12 +45,12 @@ export default {
         property: 'og:url',
         content: 'https://blog.microcms.io',
       },
-      { hid: 'og:title', property: 'og:title', content: 'microCMSブログ' },
+      { hid: 'og:title', property: 'og:title', content: "PoSo's Note" },
       {
         hid: 'og:description',
         property: 'og:description',
         content:
-          'microCMSはAPIベースの日本製ヘッドレスCMSです。本ブログはmicroCMSの開発メンバーがmicroCMSの使い方や技術的な内容を発信するブログです。',
+          '未経験からエンジニア転職を成功させた筆者が、プログラミング、アプリ開発の情報を中心に発信中。人生で得たスキルや知識のアウトプットを行うブログです。',
       },
       {
         hid: 'og:image',
@@ -61,7 +65,7 @@ export default {
       {
         rel: 'icon',
         type: 'image/x-icon',
-        href: 'https://blog.microcms.io/favicon.png',
+        href: '/icon-1024.png',
       },
       {
         rel: 'alternate',

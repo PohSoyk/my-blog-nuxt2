@@ -1,4 +1,4 @@
-# microcms-blog
+# microcms-blogからclone
 サイト: https://blog.microcms.io
 
 ## 機能
