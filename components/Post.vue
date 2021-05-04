@@ -137,6 +137,7 @@ export default {
 @media (max-width: 600px) {
   .post {
     font-size: 16px;
+    margin-top: 18px;
 
     & >>> h1 {
       font-size: 24px;

@@ -55,7 +55,7 @@
         </ul>
       </div>
       <aside class="aside">
-        <Profile />
+        <Profile :writer="contents[0].writer" />
         <Banner id="list" :banner="banner" />
         <Search />
         <Categories :categories="categories" />

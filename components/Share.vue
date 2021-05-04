@@ -18,7 +18,7 @@
       </li>
       <li class="shareList">
         <a
-          href="https://blog.microcms.io/feed.xml"
+          href="https://posonote.com/feed.xml"
           target="_blank"
           rel="noopener noreferrer"
         >

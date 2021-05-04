@@ -3,7 +3,15 @@
     <v-list-item-content>
       <!-- <v-card-title class="title">プロフィール</v-card-title> -->
       <v-avatar class="avatar" size="160">
-        <img src="/images/profile.jpg" alt="John" />
+        <source
+          type="image/webp"
+          :data-srcset="writer.image.url + '?fit=crop&w=160&h=160&fm=webp'"
+        />
+        <img
+          :data-src="writer.image.url + '?fit=crop&w=160&h=160&q=160'"
+          class="image lazyload"
+          alt
+        />
       </v-avatar>
       <v-card-title class="name">PoSo</v-card-title>
       <v-card-actions class="icons">
@@ -35,6 +43,18 @@
     </v-list-item-content>
   </v-card>
 </template>
+
+<script>
+export default {
+  props: {
+    writer: {
+      type: Object,
+      required: true,
+      default: () => ({}),
+    },
+  },
+};
+</script>
 
 <style scoped>
 .card {
