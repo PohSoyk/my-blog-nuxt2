@@ -41,7 +41,6 @@
             <Meta
               :created-at="publishedAt || createdAt"
               :updated-at="updatedAt"
-              :author="writer !== null ? writer.name : ''"
               :category="category"
             />
             <Toc :id="id" :toc="toc" :visible="toc_visible" />

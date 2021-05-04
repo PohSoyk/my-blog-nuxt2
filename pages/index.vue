@@ -27,7 +27,6 @@
                   <Meta
                     :created-at="content.publishedAt || content.createdAt"
                     :updated-at="content.updatedAt"
-                    :author="content.writer !== null ? content.writer.name : ''"
                     :category="content.category"
                   />
                   <span class="description">{{ content.description }}</span>
