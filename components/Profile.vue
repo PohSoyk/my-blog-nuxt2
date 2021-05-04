@@ -7,10 +7,22 @@
       </v-avatar>
       <v-card-title class="name">PoSo</v-card-title>
       <v-card-actions class="icons">
-        <v-btn href="https://twitter.com/PohSoyk" icon color="#00acee">
+        <v-btn
+          href="https://twitter.com/PohSoyk"
+          target="_blank"
+          rel="noopener noreferrer"
+          icon
+          color="#00acee"
+        >
           <v-icon>mdi-twitter</v-icon>
         </v-btn>
-        <v-btn href="https://github.com/PohSoyk" icon color="#000000">
+        <v-btn
+          href="https://github.com/PohSoyk"
+          target="_blank"
+          rel="noopener noreferrer"
+          icon
+          color="#000000"
+        >
           <v-icon>mdi-github</v-icon>
         </v-btn>
       </v-card-actions>

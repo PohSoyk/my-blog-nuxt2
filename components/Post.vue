@@ -17,6 +17,9 @@ export default {
 <style scoped>
 @media (min-width: 600px) {
   .post {
+    margin-top: 40px;
+    font-size: 18px;
+
     & >>> h1 {
       font-size: 30px;
       font-weight: bold;
@@ -46,7 +49,7 @@ export default {
     }
 
     & >>> h5 {
-      font-size: 17px;
+      font-size: 18px;
       font-weight: bold;
       margin: 20px 0 6px;
     }
@@ -54,7 +57,6 @@ export default {
     & >>> p {
       line-height: 1.8;
       letter-spacing: 0.2px;
-      font-size: 17px;
 
       & > code {
         color: var(--color-pink);
@@ -134,7 +136,7 @@ export default {
 }
 @media (max-width: 600px) {
   .post {
-    font-size: 14px;
+    font-size: 16px;
 
     & >>> h1 {
       font-size: 24px;

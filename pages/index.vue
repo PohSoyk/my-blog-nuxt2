@@ -495,7 +495,7 @@ export default {
   }
 
   .list {
-    padding: 32px 0 0;
+    padding: 32px 0 40px;
     border-bottom: 1px solid #eee;
 
     &:first-child {
