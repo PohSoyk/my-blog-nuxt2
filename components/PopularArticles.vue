@@ -51,9 +51,19 @@ export default {
 
   .list {
     margin-bottom: 10px;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 0.28s;
 
     &:last-child {
       margin-bottom: 0;
+    }
+  }
+
+  .list:hover {
+    background: #f6f6f6;
+
+    img {
+      opacity: 0.7;
     }
   }
 
@@ -65,6 +75,8 @@ export default {
   .image {
     width: 280px;
     border-radius: 5px;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 0.28s;
   }
 
   .title {
@@ -87,9 +99,19 @@ export default {
 
   .list {
     margin-bottom: 10px;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 0.28s;
 
     &:last-child {
       margin-bottom: 0;
+    }
+  }
+
+  .list:hover {
+    background: #f6f6f6;
+
+    img {
+      opacity: 0.7;
     }
   }
 
@@ -101,6 +123,8 @@ export default {
   .image {
     width: 140px;
     border-radius: 5px;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 0.28s;
   }
 
   .title {

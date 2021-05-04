@@ -42,6 +42,15 @@ export default {
   .list {
     border-bottom: 1px solid #eee;
 
+    a {
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 0.28s;
+    }
+
+    a:hover {
+      color: #999;
+    }
+
     &:last-child {
       border-bottom: none;
     }
@@ -68,6 +77,15 @@ export default {
 
   .list {
     border-bottom: 1px solid #eee;
+
+    a {
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 0.28s;
+    }
+
+    a:hover {
+      color: #999;
+    }
 
     &:last-child {
       border-bottom: none;

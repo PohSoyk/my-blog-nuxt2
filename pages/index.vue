@@ -10,7 +10,7 @@
         <ul>
           <li v-for="content in contents" :key="content.id" class="list">
             <nuxt-link :to="`/${content.id}`" class="link">
-              <picture v-if="content.ogimage">
+              <picture class="picture" v-if="content.ogimage">
                 <source
                   type="image/webp"
                   :data-srcset="content.ogimage.url + '?w=670&fm=webp'"
@@ -26,9 +26,11 @@
                 <dd>
                   <Meta
                     :created-at="content.publishedAt || content.createdAt"
+                    :updated-at="content.updatedAt"
                     :author="content.writer !== null ? content.writer.name : ''"
                     :category="content.category"
                   />
+                  <span class="description">{{ content.description }}</span>
                 </dd>
               </dl>
             </nuxt-link>
@@ -54,6 +56,7 @@
         </ul>
       </div>
       <aside class="aside">
+        <Profile />
         <Banner id="list" :banner="banner" />
         <Search />
         <Categories :categories="categories" />
@@ -262,6 +265,11 @@ export default {
     font-size: 20px;
     font-weight: bold;
   }
+
+  .description {
+    color: #616269;
+    font-size: 14px;
+  }
 }
 @media (min-width: 820px) and (max-width: 1160px) {
   .loader {
@@ -382,6 +390,15 @@ export default {
     font-size: 20px;
     font-weight: bold;
   }
+
+  .description {
+    color: #616269;
+    font-size: 14px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
 }
 @media (max-width: 820px) {
   .loader {
@@ -496,6 +513,11 @@ export default {
     font-size: 20px;
     font-weight: bold;
     margin-top: 10px;
+  }
+
+  .description {
+    color: #616269;
+    font-size: 14px;
   }
 }
 </style>

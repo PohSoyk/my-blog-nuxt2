@@ -46,7 +46,7 @@ export default {
     }
 
     & >>> h5 {
-      font-size: 16px;
+      font-size: 17px;
       font-weight: bold;
       margin: 20px 0 6px;
     }
@@ -54,6 +54,7 @@ export default {
     & >>> p {
       line-height: 1.8;
       letter-spacing: 0.2px;
+      font-size: 17px;
 
       & > code {
         color: var(--color-pink);
@@ -98,6 +99,10 @@ export default {
       text-decoration: underline;
       word-wrap: break-word;
       word-break: break-all;
+    }
+
+    & >>> a:hover {
+      text-decoration: none;
     }
 
     & >>> strong {

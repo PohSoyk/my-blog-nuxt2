@@ -42,6 +42,7 @@
         </div>
       </article>
       <aside class="aside">
+        <Profile />
         <Banner :id="`draft-${data.id}`" :banner="banner" />
         <Search />
         <Categories :categories="categories" />

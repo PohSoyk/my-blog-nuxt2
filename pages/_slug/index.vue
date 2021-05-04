@@ -40,6 +40,7 @@
             <h1 class="title">{{ title }}</h1>
             <Meta
               :created-at="publishedAt || createdAt"
+              :updated-at="updatedAt"
               :author="writer !== null ? writer.name : ''"
               :category="category"
             />
@@ -56,6 +57,7 @@
         </div>
       </article>
       <aside class="aside">
+        <Profile />
         <Banner :id="`blog-${id}`" :banner="banner" />
         <Search />
         <Categories :categories="categories" />
@@ -280,8 +282,9 @@ export default {
 
   .title {
     font-family: 'Quicksand', 'Source Sans Pro', -apple-system,
-      BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-      sans-serif;
+      BlinkMacSystemFont, 'Helvetica Neue', YuGothic, 'ヒラギノ角ゴ ProN W3',
+      Hiragino Kaku Gothic ProN, Verdana, Roboto, 'Droid Sans', '游ゴシック',
+      YuGothic, 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', sans-serif;
     display: block;
     font-weight: bold;
     font-size: 40px;

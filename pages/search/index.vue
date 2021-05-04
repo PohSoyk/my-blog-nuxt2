@@ -72,6 +72,7 @@
         </div>
       </div>
       <aside class="aside">
+        <Profile />
         <Banner id="search" :banner="banner" />
         <Categories :categories="categories" />
         <PopularArticles :contents="popularArticles" />

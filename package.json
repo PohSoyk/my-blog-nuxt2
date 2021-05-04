@@ -27,6 +27,7 @@
     "@nuxtjs/proxy": "^2.1.0",
     "@nuxtjs/pwa": "^3.0.0-beta.20",
     "@nuxtjs/sitemap": "^2.4.0",
+    "@nuxtjs/vuetify": "^1.11.3",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.2.0",
     "eslint-config-prettier": "^6.11.0",

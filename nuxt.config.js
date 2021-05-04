@@ -3,6 +3,10 @@ require('dotenv').config();
 const { API_KEY, SERVICE_ID, GA_ID } = process.env;
 
 export default {
+  vuetify: {
+    customVariables: ['~/assets/variables.scss'],
+    treeShake: true,
+  },
   publicRuntimeConfig: {
     apiKey: process.env.NODE_ENV !== 'production' ? API_KEY : undefined,
     serviceId: process.env.NODE_ENV !== 'production' ? SERVICE_ID : undefined,
@@ -32,7 +36,7 @@ export default {
         hid: 'description',
         name: 'description',
         content:
-          '未経験からエンジニア転職を成功させた筆者が、プログラミング、アプリ開発の情報を中心に発信中。人生で得たスキルや知識のアウトプットを行うブログです。',
+          '未経験からエンジニア転職を成功させた筆者が、IT技術、プログラミング、アプリ開発の情報を中心に発信中。人生で得たスキルや知識のアウトプットを行うブログです。',
       },
       {
         hid: 'og:site_name',
@@ -102,7 +106,7 @@ export default {
    */
   plugins: ['~/plugins/vue-scrollto'],
   components: true,
-  buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/pwa'],
+  buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/pwa', '@nuxtjs/vuetify'],
   /*
    ** Nuxt.js modules
    */
@@ -138,10 +142,11 @@ export default {
         '/images/icon_twitter.svg',
         '/images/icon_link.svg',
         '/images/logo.svg',
+        '/images/icon_undo.svg'
       ],
       runtimeCaching: [
         {
-          urlPattern: 'https://images.microcms-assets.io/.*',
+          urlPattern: 'https://images.posonote.com/.*',
           handler: 'staleWhileRevalidate',
         },
       ],
@@ -299,7 +304,7 @@ export default {
   },
   sitemap: {
     path: '/sitemap.xml',
-    hostname: 'https://blog.microcms.io',
+    hostname: 'https://posonote.com',
     exclude: ['/draft', '/404'],
     gzip: true,
     trailingSlash: true,
@@ -309,10 +314,10 @@ export default {
       path: '/feed.xml',
       async create(feed) {
         feed.options = {
-          title: 'microCMSブログ',
-          link: 'https://blog.microcms.io/feed.xml',
+          title: "PoSo's Note",
+          link: 'https://posonote.com/feed.xml',
           description:
-            'microCMSはAPIベースの日本製ヘッドレスCMSです。本ブログはmicroCMSの開発メンバーがmicroCMSの使い方や技術的な内容を発信するブログです。',
+            '未経験からエンジニア転職を成功させた筆者が、IT技術、プログラミング、アプリ開発の情報を中心に発信中。人生で得たスキルや知識のアウトプットを行うブログです。',
         };
 
         const posts = await axios
@@ -325,7 +330,7 @@ export default {
           feed.addItem({
             title: post.title,
             id: post.id,
-            link: `https://blog.microcms.io/${post.id}/`,
+            link: `https://posonote.com/${post.id}/`,
             description: post.description,
             content: post.description,
             date: new Date(post.publishedAt || post.createdAt),
@@ -336,73 +341,73 @@ export default {
       cacheTime: 1000 * 60 * 15,
       type: 'rss2',
     },
-    {
-      path: '/feed_update.xml',
-      async create(feed) {
-        feed.options = {
-          title: '更新情報｜microCMSブログ',
-          link: 'https://blog.microcms.io/feed.xml',
-          description:
-            'microCMSはAPIベースの日本製ヘッドレスCMSです。本ブログはmicroCMSの開発メンバーがmicroCMSの使い方や技術的な内容を発信するブログです。',
-        };
+    // {
+    //   path: '/feed_update.xml',
+    //   async create(feed) {
+    //     feed.options = {
+    //       title: '更新情報｜microCMSブログ',
+    //       link: 'https://blog.microcms.io/feed.xml',
+    //       description:
+    //         'microCMSはAPIベースの日本製ヘッドレスCMSです。本ブログはmicroCMSの開発メンバーがmicroCMSの使い方や技術的な内容を発信するブログです。',
+    //     };
 
-        const posts = await axios
-          .get(
-            `https://${SERVICE_ID}.microcms.io/api/v1/blog?filters=category[equals]update`,
-            {
-              headers: { 'X-API-KEY': API_KEY },
-            }
-          )
-          .then((res) => res.data.contents);
+    //     const posts = await axios
+    //       .get(
+    //         `https://${SERVICE_ID}.microcms.io/api/v1/blog?filters=category[equals]update`,
+    //         {
+    //           headers: { 'X-API-KEY': API_KEY },
+    //         }
+    //       )
+    //       .then((res) => res.data.contents);
 
-        posts.forEach((post) => {
-          feed.addItem({
-            title: post.title,
-            id: post.id,
-            link: `https://blog.microcms.io/${post.id}/`,
-            description: post.description,
-            content: post.description,
-            date: new Date(post.publishedAt || post.createdAt),
-            image: post.ogimage && post.ogimage.url,
-          });
-        });
-      },
-      cacheTime: 1000 * 60 * 15,
-      type: 'rss2',
-    },
-    {
-      path: '/feed_usecase.xml',
-      async create(feed) {
-        feed.options = {
-          title: '導入事例｜microCMSブログ',
-          link: 'https://blog.microcms.io/feed.xml',
-          description:
-            'microCMSはAPIベースの日本製ヘッドレスCMSです。本ブログはmicroCMSの開発メンバーがmicroCMSの使い方や技術的な内容を発信するブログです。',
-        };
+    //     posts.forEach((post) => {
+    //       feed.addItem({
+    //         title: post.title,
+    //         id: post.id,
+    //         link: `https://blog.microcms.io/${post.id}/`,
+    //         description: post.description,
+    //         content: post.description,
+    //         date: new Date(post.publishedAt || post.createdAt),
+    //         image: post.ogimage && post.ogimage.url,
+    //       });
+    //     });
+    //   },
+    //   cacheTime: 1000 * 60 * 15,
+    //   type: 'rss2',
+    // },
+    // {
+    //   path: '/feed_usecase.xml',
+    //   async create(feed) {
+    //     feed.options = {
+    //       title: '導入事例｜microCMSブログ',
+    //       link: 'https://blog.microcms.io/feed.xml',
+    //       description:
+    //         'microCMSはAPIベースの日本製ヘッドレスCMSです。本ブログはmicroCMSの開発メンバーがmicroCMSの使い方や技術的な内容を発信するブログです。',
+    //     };
 
-        const posts = await axios
-          .get(
-            `https://${SERVICE_ID}.microcms.io/api/v1/blog?filters=category[equals]usecase`,
-            {
-              headers: { 'X-API-KEY': API_KEY },
-            }
-          )
-          .then((res) => res.data.contents);
+    //     const posts = await axios
+    //       .get(
+    //         `https://${SERVICE_ID}.microcms.io/api/v1/blog?filters=category[equals]usecase`,
+    //         {
+    //           headers: { 'X-API-KEY': API_KEY },
+    //         }
+    //       )
+    //       .then((res) => res.data.contents);
 
-        posts.forEach((post) => {
-          feed.addItem({
-            title: post.title,
-            id: post.id,
-            link: `https://blog.microcms.io/${post.id}/`,
-            description: post.description,
-            content: post.description,
-            date: new Date(post.publishedAt || post.createdAt),
-            image: post.ogimage && post.ogimage.url,
-          });
-        });
-      },
-      cacheTime: 1000 * 60 * 15,
-      type: 'rss2',
-    },
+    //     posts.forEach((post) => {
+    //       feed.addItem({
+    //         title: post.title,
+    //         id: post.id,
+    //         link: `https://blog.microcms.io/${post.id}/`,
+    //         description: post.description,
+    //         content: post.description,
+    //         date: new Date(post.publishedAt || post.createdAt),
+    //         image: post.ogimage && post.ogimage.url,
+    //       });
+    //     });
+    //   },
+    //   cacheTime: 1000 * 60 * 15,
+    //   type: 'rss2',
+    // },
   ],
 };

@@ -44,6 +44,12 @@ export default {
     a {
       display: block;
       padding: 10px;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 0.28s;
+    }
+
+    a:hover {
+      color: #999;
     }
 
     &:last-child {
@@ -71,6 +77,12 @@ export default {
     a {
       display: block;
       padding: 10px;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 0.28s;
+    }
+
+    a:hover {
+      color: #999;
     }
 
     &:last-child {
