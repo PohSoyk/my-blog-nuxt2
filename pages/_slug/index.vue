@@ -56,7 +56,7 @@
         </div>
       </article>
       <aside class="aside">
-        <Profile :writer="writer" />
+        <Profile />
         <Banner :id="`blog-${id}`" :banner="banner" />
         <Search />
         <Categories :categories="categories" />

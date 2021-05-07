@@ -1,7 +1,7 @@
 <template>
   <footer class="footer">
     <ul class="lists">
-      <li class="list">
+      <!-- <li class="list">
         <a href="https://wanta.co.jp">運営会社</a>
       </li>
       <li class="list">
@@ -9,17 +9,33 @@
       </li>
       <li class="list">
         <a href="https://microcms.io/terms">利用規約</a>
+      </li> -->
+      <li class="list">
+        <a href="https://posonote.com/policy">プライバシーポリシー</a>
       </li>
       <li class="list">
-        <a href="https://microcms.io/policy">プライバシーポリシー</a>
-      </li>
-      <li class="list">
-        <a href="https://microcms.io/contact">お問い合わせ</a>
+        <a href="https://posonote.com/contact">お問い合わせ</a>
       </li>
     </ul>
-    <p class="cr">© Wanta Inc.</p>
+    <p class="cr" v-html="`${copy} ${now} ${copyright}`"></p>
   </footer>
 </template>
+
+<script>
+export default {
+  data: () => {
+    return {
+      copy: '&copy;',
+      now: '',
+      copyright: "PoSo's Note.",
+    };
+  },
+  created() {
+    const d = new Date();
+    this.now = d.getFullYear();
+  },
+};
+</script>
 
 <style scoped>
 @media (min-width: 600px) {
@@ -56,6 +72,12 @@
 
     a {
       color: #2b2c30;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 0.28s;
+    }
+
+    a:hover {
+      color: #999;
     }
   }
 

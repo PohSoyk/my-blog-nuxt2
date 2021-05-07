@@ -10,7 +10,7 @@
         <ul>
           <li v-for="content in contents" :key="content.id" class="list">
             <nuxt-link :to="`/${content.id}`" class="link">
-              <picture class="picture" v-if="content.ogimage">
+              <picture v-if="content.ogimage" class="picture">
                 <source
                   type="image/webp"
                   :data-srcset="content.ogimage.url + '?w=670&fm=webp'"
@@ -55,7 +55,7 @@
         </ul>
       </div>
       <aside class="aside">
-        <Profile :writer="contents[0].writer" />
+        <Profile />
         <Banner id="list" :banner="banner" />
         <Search />
         <Categories :categories="categories" />

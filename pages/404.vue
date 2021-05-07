@@ -5,6 +5,17 @@
       <dl>
         <dt class="status">404</dt>
         <dd class="message">ページが見つかりません</dd>
+        <dd>
+          <v-btn
+            href="https://posonote.com"
+            class="btn"
+            outlined
+            large
+            color="#999"
+          >
+            Topページへ
+          </v-btn>
+        </dd>
       </dl>
     </div>
     <Footer />
@@ -45,5 +56,8 @@ export default {
 .message {
   color: #999;
   font-size: 20px;
+}
+.btn {
+  margin-top: 30px;
 }
 </style>

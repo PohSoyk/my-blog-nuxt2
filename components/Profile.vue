@@ -5,10 +5,10 @@
       <v-avatar class="avatar" size="160">
         <source
           type="image/webp"
-          :data-srcset="writer.image.url + '?fit=crop&w=160&h=160&fm=webp'"
+          src="https://images.microcms-assets.io/assets/26e0e403ee4244a49df93c05972f5999/b3dba0f1467d479896d3de7921bd4bf3/DSC_6532(1).jpg?fit=crop&w=160&h=160&fm=webp"
         />
         <img
-          :data-src="writer.image.url + '?fit=crop&w=160&h=160&q=160'"
+          src="https://images.microcms-assets.io/assets/26e0e403ee4244a49df93c05972f5999/b3dba0f1467d479896d3de7921bd4bf3/DSC_6532(1).jpg?fit=crop&w=160&h=160&q=160"
           class="image lazyload"
           alt
         />
@@ -43,18 +43,6 @@
     </v-list-item-content>
   </v-card>
 </template>
-
-<script>
-export default {
-  props: {
-    writer: {
-      type: Object,
-      required: true,
-      default: () => ({}),
-    },
-  },
-};
-</script>
 
 <style scoped>
 .card {

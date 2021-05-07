@@ -47,7 +47,7 @@ export default {
       {
         hid: 'og:url',
         property: 'og:url',
-        content: 'https://blog.microcms.io',
+        content: 'https://posonote.com',
       },
       { hid: 'og:title', property: 'og:title', content: "PoSo's Note" },
       {
@@ -59,7 +59,7 @@ export default {
       {
         hid: 'og:image',
         property: 'og:image',
-        content: 'https://blog.microcms.io/images/ogp.png',
+        content: 'https://posonote.com/images/ogp.png',
       },
 
       { name: 'twitter:card', content: 'summary_large_image' },
@@ -74,7 +74,7 @@ export default {
       {
         rel: 'alternate',
         type: 'application/atom+xml',
-        href: 'https://blog.microcms.io/feed.xml',
+        href: 'https://posonote.com/feed.xml',
         title: 'Atom',
       },
     ],
@@ -142,7 +142,7 @@ export default {
         '/images/icon_twitter.svg',
         '/images/icon_link.svg',
         '/images/logo.svg',
-        '/images/icon_undo.svg'
+        '/images/icon_undo.svg',
       ],
       runtimeCaching: [
         {
