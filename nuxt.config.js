@@ -69,7 +69,7 @@ export default {
       {
         rel: 'icon',
         type: 'image/x-icon',
-        href: '/icon-1024.png',
+        href: 'https://posonote.com/favicon.png',
       },
       {
         rel: 'alternate',

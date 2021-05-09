@@ -23,7 +23,7 @@
 
 <script>
 export default {
-  data: () => {
+  data() {
     return {
       copy: '&copy;',
       now: '',
