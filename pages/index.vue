@@ -134,7 +134,7 @@ export default {
   },
   head() {
     return {
-      titleTemplete: '',
+      titleTemplate: null,
       title: "PoSo's Note",
     };
   },

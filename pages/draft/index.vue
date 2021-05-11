@@ -143,8 +143,11 @@ export default {
     }
     this.data = data;
 
-    // 目次作成
-    const $ = cheerio.load(data.body);
+    let text = '';
+    data.body.forEach((data) => {
+      text += data.text;
+    });
+    const $ = cheerio.load(text);
     const headings = $('h1, h2, h3').toArray();
     const toc = headings.map((d) => {
       return {
@@ -183,7 +186,7 @@ export default {
         {
           hid: 'og:url',
           property: 'og:url',
-          content: `https://blog.microcms.io/${this.data && this.data.id}`,
+          content: `https://posonote.com/${this.data && this.data.id}`,
         },
         {
           hid: 'og:image',

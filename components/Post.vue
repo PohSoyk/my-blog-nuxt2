@@ -1,18 +1,14 @@
 <template>
-  <div>
-    <div v-for="post in body" :key="post.index">
-      <div class="post" v-html="post.text"></div>
-    </div>
-  </div>
+  <div class="post" v-html="body"></div>
 </template>
 
 <script>
 export default {
   props: {
     body: {
-      type: Array,
+      type: String,
       required: true,
-      default: () => [],
+      default: '',
     },
   },
 };

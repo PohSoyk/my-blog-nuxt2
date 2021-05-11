@@ -122,7 +122,11 @@ export default {
         headers: { 'X-API-KEY': $config.apiKey },
       }
     );
-    const $ = cheerio.load(data.body); // 機能してない
+    let text = '';
+    data.body.forEach((data) => {
+      text += data.text;
+    });
+    const $ = cheerio.load(text); // 機能してない
     const headings = $('h1, h2, h3').toArray();
     const toc = headings.map((d) => {
       return {
@@ -146,7 +150,7 @@ export default {
       ...data,
       popularArticles,
       banner,
-      // body: $.html(),
+      body: $.html(),
       toc,
       categories: categories.data.contents,
       contents,
@@ -160,7 +164,7 @@ export default {
   },
   head() {
     return {
-      title: `${this.title} | PoSo's Note`,
+      title: this.title,
       meta: [
         { hid: 'description', name: 'description', content: this.description },
         { hid: 'og:title', property: 'og:title', content: this.title },
