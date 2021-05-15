@@ -249,6 +249,17 @@ export default {
     justify-content: space-between;
   }
 
+  .picture {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 0.28s;
+  }
+
+  .link:hover {
+    .picture {
+      opacity: 0.7;
+    }
+  }
+
   .ogimage {
     width: 335px;
     height: 176px;
@@ -263,6 +274,12 @@ export default {
   .title {
     font-size: 20px;
     font-weight: bold;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 0.28s;
+  }
+
+  .title:hover {
+    color: #616269;
   }
 
   .description {

@@ -51,26 +51,24 @@ export default {
 
   .list {
     margin-bottom: 10px;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 0.28s;
 
     &:last-child {
       margin-bottom: 0;
     }
   }
 
-  .list:hover {
+  .link {
+    display: block;
+    padding: 10px;
+  }
+
+  .link:hover {
     img {
       opacity: 0.7;
     }
     .title {
       opacity: 0.7;
     }
-  }
-
-  .link {
-    display: block;
-    padding: 10px;
   }
 
   .image {
@@ -82,6 +80,8 @@ export default {
 
   .title {
     padding-top: 10px;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 0.28s;
   }
 }
 @media (min-width: 520px) and (max-width: 1160px) {
@@ -109,9 +109,10 @@ export default {
   }
 
   .list:hover {
-    background: #f6f6f6;
-
     img {
+      opacity: 0.7;
+    }
+    .title {
       opacity: 0.7;
     }
   }

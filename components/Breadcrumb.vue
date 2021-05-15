@@ -2,7 +2,7 @@
   <ul class="breadcrumb">
     <li class="breadcrumbList">
       <nuxt-link to="/">
-        <v-icon class="icon" color="#331cbf">{{ home }}</v-icon>
+        <img src="/images/icon_home.svg" alt="home" />
         ホーム
       </nuxt-link>
     </li>
@@ -15,11 +15,7 @@
 </template>
 
 <script>
-import { mdiHomeOutline } from '@mdi/js';
 export default {
-  data: () => ({
-    home: mdiHomeOutline,
-  }),
   props: {
     category: {
       type: Object,
@@ -47,6 +43,13 @@ export default {
 
   a {
     color: #331cbf;
+  }
+
+  img {
+    color: #331cbf;
+    height: 18px;
+    width: 18px;
+    vertical-align: text-top;
   }
 
   &::after {
