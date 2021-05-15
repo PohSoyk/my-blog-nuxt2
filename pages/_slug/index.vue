@@ -126,7 +126,7 @@ export default {
     data.body.forEach((data) => {
       text += data.text;
     });
-    const $ = cheerio.load(text); // 機能してない
+    const $ = cheerio.load(text);
     const headings = $('h1, h2, h3').toArray();
     const toc = headings.map((d) => {
       return {

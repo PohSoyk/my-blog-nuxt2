@@ -24,7 +24,7 @@ export default {
       prefix: 'og: http://ogp.me/ns#',
       lang: 'ja',
     },
-    titleTemplete: "%s | PoSo's Note",
+    titleTemplate: "%s | PoSo's Note",
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -104,7 +104,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~/plugins/vue-scrollto'],
+  plugins: ['~/plugins/vue-scrollto', '~/plugins/vee-validate'],
   components: true,
   buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/pwa', '@nuxtjs/vuetify'],
   /*
@@ -176,6 +176,7 @@ export default {
         });
       }
     },
+    transpile: ['vee-validate/dist/rules'],
   },
   router: {
     extendRoutes(routes, resolve) {

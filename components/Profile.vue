@@ -22,7 +22,7 @@
           icon
           color="#00acee"
         >
-          <v-icon>mdi-twitter</v-icon>
+          <v-icon>{{ Twitter }}</v-icon>
         </v-btn>
         <v-btn
           href="https://github.com/PohSoyk"
@@ -31,7 +31,7 @@
           icon
           color="#000000"
         >
-          <v-icon>mdi-github</v-icon>
+          <v-icon>{{ Github }}</v-icon>
         </v-btn>
       </div>
       <p class="profile">
@@ -43,6 +43,16 @@
     </div>
   </div>
 </template>
+
+<script>
+import { mdiTwitter, mdiGithub } from '@mdi/js';
+export default {
+  data: () => ({
+    Twitter: mdiTwitter,
+    Github: mdiGithub,
+  }),
+};
+</script>
 
 <style scoped>
 .card {

@@ -60,9 +60,10 @@ export default {
   }
 
   .list:hover {
-    background: #f6f6f6;
-
     img {
+      opacity: 0.7;
+    }
+    .title {
       opacity: 0.7;
     }
   }

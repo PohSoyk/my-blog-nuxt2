@@ -27,6 +27,8 @@ export default {
       background-color: #eee;
       padding: 10px 20px;
       border-radius: 5px;
+      border: solid #385cae;
+      border-width: 0 0 0 6px;
     }
 
     & >>> h2 {
@@ -57,6 +59,7 @@ export default {
     & >>> p {
       line-height: 1.8;
       letter-spacing: 0.2px;
+      padding: 0 0 1em;
 
       & > code {
         color: var(--color-pink);
@@ -146,6 +149,8 @@ export default {
       background-color: #eee;
       padding: 10px 20px;
       border-radius: 5px;
+      border: solid #385cae;
+      border-width: 0 0 0 5px;
     }
 
     & >>> h2 {
