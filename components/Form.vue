@@ -78,7 +78,12 @@
                   >送信
                 </v-btn>
               </v-row>
-              <v-snackbar v-model="snackbar" color="success" timeout="4000">
+              <v-snackbar
+                class="snackbar"
+                v-model="snackbar"
+                color="success"
+                timeout="4000"
+              >
                 {{ snackbarText }}
                 <template v-slot:action="{ attrs }">
                   <v-btn text v-bind="attrs" @click="snackbar = false">
@@ -112,13 +117,13 @@ export default {
     ValidationProvider,
   },
   data: () => ({
-    name: undefined,
-    email: undefined,
-    message: undefined,
+    name: '',
+    email: '',
+    message: '',
     botField: '',
     loading: false,
     snackbar: false,
-    snackbarText: undefined,
+    snackbarText: '',
     snackbarError: false,
   }),
 
@@ -139,6 +144,7 @@ export default {
           this.snackbarText = 'お問い合わせを送信しました！';
           this.snackbar = true;
           this.loading = false;
+          this.name = this.email = this.message = '';
           this.$refs.obs.reset();
         })
         .catch(() => {
@@ -168,5 +174,11 @@ export default {
 
 .v-messages__message {
   line-height: 13px !important;
+}
+
+@media (min-width: 1160px) {
+  .snackbar {
+    left: -150px !important;
+  }
 }
 </style>
