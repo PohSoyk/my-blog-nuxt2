@@ -3,37 +3,23 @@
     <header class="header">
       <h1 class="logo">
         <a href="https://posonote.com">
-          <img class="logoImg" src="/images/logo.svg" alt="microCMS" />
+          <img class="logoImg" src="/images/logo.svg" alt="PoSo's Note" />
         </a>
       </h1>
       <button class="menuBtn" @click="toggleOpen()">
         <img src="/images/icon_menu.svg" alt="menu" />
       </button>
       <div v-if="open" class="mask" @click="setOpen(false)"></div>
-
       <div class="menu" :class="{ isOpen: open }">
         <ul class="lists">
           <li class="list">
-            <a href="https://microcms.io/pricing">料金</a>
+            <a href="https://posonote.com/profile">プロフィール</a>
           </li>
           <li class="list">
-            <a href="https://document.microcms.io">ドキュメント</a>
+            <a href="https://posonote.com/portfolio">ポートフォリオ</a>
           </li>
           <li class="list">
-            <a href="https://blog.microcms.io">ブログ</a>
-          </li>
-          <li class="list">
-            <a href="https://microcms.io/contact">お問い合わせ</a>
-          </li>
-        </ul>
-        <ul class="lists">
-          <li class="list">
-            <a class="signin" href="https://app.microcms.io/signin">ログイン</a>
-          </li>
-          <li class="list">
-            <a class="signup" :href="`https://app.microcms.io${params}`"
-              >新規登録</a
-            >
+            <a href="https://posonote.com/contact">お問い合わせ</a>
           </li>
         </ul>
       </div>
@@ -113,13 +99,13 @@ export default {
     display: flex;
     align-items: center;
 
-    &:first-child::after {
+    /* &:first-child::after {
       content: '';
       width: 1px;
       height: 30px;
       background-color: var(--color-text-off);
       margin-right: 40px;
-    }
+    } */
   }
 
   .list {
@@ -133,6 +119,8 @@ export default {
     a,
     a:visited {
       color: var(--color-text-main);
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 0.28s;
 
       &.signup {
         border-radius: 5px;
@@ -148,6 +136,10 @@ export default {
         text-align: center;
         padding: 8px 24px;
       }
+    }
+
+    a:hover {
+      color: #331cbf;
     }
   }
 }

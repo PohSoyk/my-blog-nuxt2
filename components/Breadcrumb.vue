@@ -3,7 +3,7 @@
     <li class="breadcrumbList">
       <nuxt-link to="/">
         <img src="/images/icon_home.svg" alt="home" />
-        ホーム
+        記事一覧
       </nuxt-link>
     </li>
     <li v-if="hasCategory(category)" class="breadcrumbList">
@@ -63,15 +63,14 @@ export default {
   }
 }
 
-.icon {
-  vertical-align: text-bottom !important;
-  height: 20px;
-  width: 20px;
-}
-
 @media (max-width: 600px) {
   .breadcrumbList {
     font-size: 14px;
+
+    img {
+      height: 16px;
+      width: 16px;
+    }
   }
 }
 </style>
