@@ -140,8 +140,8 @@ export default {
     setSearchable() {
       this.searchable = true;
     },
-    async search(q) {
-      if (!q || !this.searchable) {
+    async search(q = '') {
+      if (!q.trim() || !this.searchable) {
         return;
       }
       this.loadingStart();
