@@ -3,13 +3,9 @@
     <v-row no-gutters justify="center">
       <v-col cols="10">
         <v-sheet class="form-group" color="transparent">
-          <ValidationObserver
-            ref="obs"
-            v-slot="{ invalid, validated }"
-            name="contact"
-          >
+          <ValidationObserver ref="obs" v-slot="{ invalid, validated }">
             <v-form
-              method="POST"
+              name="contact"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
               @submit.prevent="onSubmit"
@@ -22,6 +18,7 @@
               >
                 <v-text-field
                   v-model="name"
+                  name="name"
                   :error-messages="errors"
                   :counter="20"
                   required
@@ -39,6 +36,7 @@
               >
                 <v-text-field
                   v-model="email"
+                  name="email"
                   :error-messages="errors"
                   required
                   autocomplete="email"
@@ -55,6 +53,7 @@
               >
                 <v-textarea
                   v-model="message"
+                  name="message"
                   :error-messages="errors"
                   :counter="1000"
                   color="#385cae"
@@ -75,7 +74,7 @@
                   color="#385cae"
                   :loading="loading"
                   :disabled="invalid || !validated"
-                  type="submit"
+                  @click="onSubmit"
                   >送信
                 </v-btn>
               </v-row>
@@ -117,8 +116,6 @@ export default {
     email: undefined,
     message: undefined,
     botField: '',
-    inputdata: false,
-    makesure: true,
     loading: false,
     snackbar: false,
     snackbarText: undefined,
@@ -142,8 +139,6 @@ export default {
           this.snackbarText = 'お問い合わせを送信しました！';
           this.snackbar = true;
           this.loading = false;
-          this.inputdata = false;
-          this.makesure = true;
           this.$refs.obs.reset();
         })
         .catch(() => {
