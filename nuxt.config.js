@@ -270,6 +270,12 @@ export default {
         payload: { popularArticles, banner },
       };
 
+      // お問い合わせページ
+      const contact = {
+        route: '/contact',
+        payload: { popularArticles, banner },
+      };
+
       const categories = await axios
         .get(`https://${SERVICE_ID}.microcms.io/api/v1/categories?fields=id`, {
           headers: { 'X-API-KEY': API_KEY },
@@ -299,7 +305,7 @@ export default {
         )
       );
       const flattenCategoryPages = [].concat.apply([], categoryPages);
-      return [index, search, ...articles, ...pages, ...flattenCategoryPages];
+      return [index, search, contact, ...articles, ...pages, ...flattenCategoryPages];
     },
     dir: 'dist',
   },

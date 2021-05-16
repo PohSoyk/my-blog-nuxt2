@@ -73,7 +73,12 @@ export default {
       categories: categories.data.contents,
     };
   },
-  data() {},
+  data() {
+    return {
+      categories: this.categories || [],
+      contents: this.contents || [],
+    };
+  },
   head() {
     return {
       title: 'お問い合わせ',
