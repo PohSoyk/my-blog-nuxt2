@@ -134,7 +134,7 @@ export default {
         params.append('bot-field', this.botField);
       }
       axios
-        .$post('/', params)
+        .post('/', params)
         .then(() => {
           this.snackbarText = 'お問い合わせを送信しました！';
           this.snackbar = true;
