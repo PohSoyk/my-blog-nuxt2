@@ -1,4 +1,10 @@
 require('dotenv').config();
+const {
+  OAUTH_USER,
+  OAUTH_CLIENT_ID,
+  OAUTH_CLIENT_SECRET,
+  OAUTH_REFRESH_TOKEN,
+} = process.env;
 
 const nodemailer = require('nodemailer');
 
@@ -8,10 +14,10 @@ exports.handler = function (event, context, callback) {
   // OAuth認証情報
   const auth = {
     type: 'OAuth2',
-    user: process.env.OAUTH_USER,
-    clientId: process.env.OAUTH_CLIENT_ID,
-    clientSecret: process.env.OAUTH_CLIENT_SECRET,
-    refreshToken: process.env.OAUTH_REFRESH_TOKEN,
+    user: OAUTH_USER,
+    clientId: OAUTH_CLIENT_ID,
+    clientSecret: OAUTH_CLIENT_SECRET,
+    refreshToken: OAUTH_REFRESH_TOKEN,
   };
 
   // トランスポート
