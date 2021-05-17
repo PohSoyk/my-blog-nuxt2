@@ -79,8 +79,8 @@
                 </v-btn>
               </v-row>
               <v-snackbar
-                class="snackbar"
                 v-model="snackbar"
+                class="snackbar"
                 color="success"
                 timeout="4000"
               >

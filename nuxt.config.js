@@ -3,10 +3,6 @@ require('dotenv').config();
 const { API_KEY, SERVICE_ID, GA_ID } = process.env;
 
 export default {
-  vuetify: {
-    customVariables: ['~/assets/variables.scss'],
-    treeShake: true,
-  },
   publicRuntimeConfig: {
     apiKey: process.env.NODE_ENV !== 'production' ? API_KEY : undefined,
     serviceId: process.env.NODE_ENV !== 'production' ? SERVICE_ID : undefined,
@@ -122,6 +118,10 @@ export default {
     '@nuxtjs/feed',
     '@nuxtjs/proxy',
   ],
+  vuetify: {
+    customVariables: ['~/assets/variables.scss'],
+    treeShake: true,
+  },
   dayjs: {
     locales: ['ja'],
     defaultLocale: 'ja',
@@ -305,7 +305,14 @@ export default {
         )
       );
       const flattenCategoryPages = [].concat.apply([], categoryPages);
-      return [index, search, contact, ...articles, ...pages, ...flattenCategoryPages];
+      return [
+        index,
+        search,
+        contact,
+        ...articles,
+        ...pages,
+        ...flattenCategoryPages,
+      ];
     },
     dir: 'dist',
   },
