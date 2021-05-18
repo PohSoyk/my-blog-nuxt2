@@ -10,17 +10,19 @@
         <ul>
           <li v-for="content in contents" :key="content.id" class="list">
             <nuxt-link :to="`/${content.id}`" class="link">
-              <picture v-if="content.ogimage" class="picture">
-                <source
-                  type="image/webp"
-                  :data-srcset="content.ogimage.url + '?w=670&fm=webp'"
-                />
-                <img
-                  :data-src="content.ogimage.url + '?w=670'"
-                  class="ogimage lazyload"
-                  alt
-                />
-              </picture>
+              <div class="pictureBox">
+                <picture v-if="content.ogimage">
+                  <source
+                    type="image/webp"
+                    :data-srcset="content.ogimage.url + '?w=670&fm=webp'"
+                  />
+                  <img
+                    :data-src="content.ogimage.url + '?w=670'"
+                    class="ogimage lazyload"
+                    alt
+                  />
+                </picture>
+              </div>
               <dl class="content">
                 <dt class="title">{{ content.title }}</dt>
                 <dd>
@@ -249,21 +251,27 @@ export default {
     justify-content: space-between;
   }
 
-  .picture {
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 0.28s;
-  }
-
-  .link:hover {
-    .picture {
-      opacity: 0.7;
-    }
+  .pictureBox {
+    width: 334px;
+    overflow: hidden;
+    height: 175px;
+    background: #fff;
+    border-radius: 5px;
   }
 
   .ogimage {
     width: 335px;
     height: 176px;
     border-radius: 5px;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 0.28s;
+  }
+
+  .link:hover {
+    .ogimage {
+      transform: scale(1.035);
+      opacity: 0.76;
+    }
   }
 
   .content {
