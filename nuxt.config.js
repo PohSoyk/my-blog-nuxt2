@@ -275,6 +275,12 @@ export default {
         payload: { popularArticles, banner },
       };
 
+      // プライバシーポリシーページ
+      const policy = {
+        route: '/policy',
+        payload: { popularArticles, banner },
+      };
+
       const categories = await axios
         .get(`https://${SERVICE_ID}.microcms.io/api/v1/categories?fields=id`, {
           headers: { 'X-API-KEY': API_KEY },
@@ -308,6 +314,7 @@ export default {
         index,
         search,
         contact,
+        policy,
         ...articles,
         ...pages,
         ...flattenCategoryPages,
