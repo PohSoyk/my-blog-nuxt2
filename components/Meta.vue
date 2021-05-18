@@ -16,10 +16,6 @@
           {{ $dayjs(updatedAt).format('YYYY/MM/DD') }}
         </time>
       </span>
-      <!-- <span v-if="author" class="author">
-        <img src="/images/icon_author.svg" alt />
-        {{ author }}
-      </span> -->
     </div>
   </div>
 </template>
@@ -36,11 +32,6 @@ export default {
       required: false,
       default: undefined,
     },
-    // author: {
-    //   type: String,
-    //   required: false,
-    //   default: undefined,
-    // },
     category: {
       type: Object,
       required: false,

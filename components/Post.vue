@@ -139,7 +139,7 @@ export default {
 }
 @media (max-width: 600px) {
   .post {
-    font-size: 4vw;
+    font-size: 16px;
     margin-top: 18px;
 
     & >>> h1 {

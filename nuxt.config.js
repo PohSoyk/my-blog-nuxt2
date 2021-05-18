@@ -142,12 +142,10 @@ export default {
         '/images/icon_search.svg',
         '/images/icon_twitter.svg',
         '/images/icon_link.svg',
-        '/images/logo.svg',
-        '/images/icon_undo.svg',
       ],
       runtimeCaching: [
         {
-          urlPattern: 'https://images.posonote.com/.*',
+          urlPattern: 'https://images.microcms-assets.io/.*',
           handler: 'staleWhileRevalidate',
         },
       ],

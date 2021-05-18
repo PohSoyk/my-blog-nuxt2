@@ -88,6 +88,12 @@ export default {
 </script>
 
 <style scoped>
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 20px;
+}
+
 .breadcrumbList img {
   color: #331cbf;
   height: 18px;
@@ -162,11 +168,6 @@ export default {
     width: 335px;
     height: 176px;
     border-radius: 5px;
-  }
-
-  .breadcrumb {
-    display: flex;
-    flex-wrap: wrap;
   }
 
   .breadcrumbList {
@@ -282,11 +283,6 @@ export default {
     width: 335px;
     height: 176px;
     border-radius: 5px;
-  }
-
-  .breadcrumb {
-    display: flex;
-    flex-wrap: wrap;
   }
 
   .breadcrumbList {
@@ -443,11 +439,6 @@ export default {
 
   .icon {
     font-size: 19px !important;
-  }
-
-  .breadcrumb {
-    display: flex;
-    flex-wrap: wrap;
   }
 
   .breadcrumbList {
