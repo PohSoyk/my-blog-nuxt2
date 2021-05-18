@@ -19,7 +19,7 @@
             <a href="https://posonote.com/portfolio">ポートフォリオ</a>
           </li>
           <li class="list">
-            <a href="https://posonote.com/contact">お問い合わせ</a>
+            <nuxt-link to="/contact">お問い合わせ</nuxt-link>
           </li>
         </ul>
       </div>
@@ -98,14 +98,6 @@ export default {
   .lists {
     display: flex;
     align-items: center;
-
-    /* &:first-child::after {
-      content: '';
-      width: 1px;
-      height: 30px;
-      background-color: var(--color-text-off);
-      margin-right: 40px;
-    } */
   }
 
   .list {
@@ -121,25 +113,29 @@ export default {
       color: var(--color-text-main);
       transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
       transition-duration: 0.28s;
+      position: relative;
+      display: inline-block;
+    }
 
-      &.signup {
-        border-radius: 5px;
-        background: linear-gradient(to right bottom, #5630af, #3067af);
-        color: #fff;
-        text-align: center;
-        padding: 8px 24px;
-      }
-
-      &.signin {
-        border-radius: 5px;
-        background-color: var(--color-bg-purple);
-        text-align: center;
-        padding: 8px 24px;
-      }
+    a::after {
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      content: '';
+      width: 100%;
+      height: 1px;
+      background: #331cbf;
+      transform: scale(0, 1);
+      transform-origin: center top;
+      transition: transform 0.3s;
     }
 
     a:hover {
       color: #331cbf;
+    }
+
+    a:hover::after {
+      transform: scale(1, 1);
     }
   }
 }
@@ -214,23 +210,6 @@ export default {
       color: var(--color-text-main);
       padding: 8px 0;
       border-bottom: 1px solid var(--color-border-light);
-
-      &.signup {
-        border-radius: 5px;
-        background: linear-gradient(to right bottom, #5630af, #3067af);
-        color: #fff;
-        text-align: center;
-        font-weight: bold;
-      }
-
-      &.signin {
-        display: block;
-        border-radius: 5px;
-        background-color: var(--color-bg-purple);
-        text-align: center;
-        font-weight: bold;
-        margin-bottom: 12px;
-      }
     }
 
     &:last-child a {

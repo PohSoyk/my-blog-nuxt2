@@ -321,6 +321,8 @@ export default {
     background-color: #eee;
     padding: 10px 20px;
     border-radius: 5px;
+    border: solid #385cae;
+    border-width: 0 0 0 6px;
   }
   .text {
     line-height: 1.8;
@@ -479,6 +481,8 @@ export default {
     background-color: #eee;
     padding: 10px 20px;
     border-radius: 5px;
+    border: solid #385cae;
+    border-width: 0 0 0 4.8px;
   }
 
   .text {

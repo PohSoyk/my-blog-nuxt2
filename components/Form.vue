@@ -169,9 +169,6 @@ export default {
   max-width: 100%;
 }
 
-.form-group {
-}
-
 .v-messages__message {
   line-height: 13px !important;
 }

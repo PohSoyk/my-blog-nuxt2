@@ -23,14 +23,14 @@ exports.handler = function (event, context, callback) {
   // トランスポート
   const transport = {
     service: 'gmail',
-    auth: auth,
+    auth,
   };
 
-  let transporter = nodemailer.createTransport(transport);
+  const transporter = nodemailer.createTransport(transport);
 
   const url = 'https://posonote.com/';
 
-  let mailOptions = {
+  const mailOptions = {
     from: `PoSo's Note <info@posonote.com>`,
     to: `${email}`,
     subject: `【PoSo's Note】お問い合わせありがとうございます`,
