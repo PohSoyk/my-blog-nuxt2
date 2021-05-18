@@ -46,7 +46,6 @@
             <Toc :id="id" :toc="toc" :visible="toc_visible" />
             <Post :body="body" />
             <Writer v-if="writer" :writer="writer" />
-            <Partner v-if="partner" :partner="partner" />
             <Conversion :id="id" />
             <RelatedBlogs
               v-if="related_blogs.length > 0"
