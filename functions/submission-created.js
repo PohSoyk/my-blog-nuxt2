@@ -40,7 +40,7 @@ exports.handler = function (event, context, callback) {
   transporter.sendMail(mailOptions, function (error, info) {
     if (error) {
       callback(error);
-      console.log(info);
+      console.log(info); // eslint-disable-line no-console
     } else {
       callback(null, {
         statusCode: 200,
