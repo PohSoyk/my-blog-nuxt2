@@ -88,7 +88,7 @@ export default {
 }
 @media (max-width: 600px) {
   .meta {
-    padding: 4px 0 12px;
+    padding: 10px 0 12px;
     font-size: 14px;
     align-items: center;
     display: flex;

@@ -214,8 +214,8 @@ export default {
   }
 
   .title {
-    font-family: 'Quicksand', 'Source Sans Pro', -apple-system,
-      BlinkMacSystemFont, 'Helvetica Neue', YuGothic, 'ヒラギノ角ゴ ProN W3',
+    font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
+      'Helvetica Neue', YuGothic, 'ヒラギノ角ゴ ProN W3',
       Hiragino Kaku Gothic ProN, Verdana, Roboto, 'Droid Sans', '游ゴシック',
       YuGothic, 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', sans-serif;
     display: block;
@@ -333,6 +333,15 @@ export default {
     flex: 1;
     margin-left: 40px;
   }
+
+  .title {
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', YuGothic,
+      'ヒラギノ角ゴ ProN W3', Hiragino Kaku Gothic ProN, Roboto, 'Droid Sans',
+      '游ゴシック', YuGothic, 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', sans-serif;
+    font-weight: bold;
+    font-size: 40px;
+    color: #2b2c30;
+  }
 }
 @media (max-width: 820px) {
   .loader {
@@ -377,6 +386,14 @@ export default {
   .divider {
     margin: 20px 0 0;
     padding: 0 20px;
+  }
+
+  .main {
+    position: relative;
+    flex: 1;
+    background-color: #fff;
+    margin-top: 50px;
+    -webkit-font-smoothing: antialiased;
   }
 
   .article {
@@ -470,6 +487,16 @@ export default {
       content: '';
       margin: 0;
     }
+  }
+
+  .title {
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', YuGothic,
+      'ヒラギノ角ゴ ProN W3', Hiragino Kaku Gothic ProN, Roboto, 'Droid Sans',
+      '游ゴシック', YuGothic, 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', sans-serif;
+    display: block;
+    font-weight: bold;
+    font-size: 34px;
+    color: #2b2c30;
   }
 }
 </style>
