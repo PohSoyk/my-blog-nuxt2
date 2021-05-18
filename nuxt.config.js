@@ -121,7 +121,7 @@ export default {
   ],
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
-    treeShake: true,
+    // treeShake: true,
   },
   dayjs: {
     locales: ['ja'],
@@ -178,6 +178,13 @@ export default {
     transpile: ['vee-validate/dist/rules'],
   },
   router: {
+    scrollBehavior: function (to, from, savedPosition) {
+      if (savedPosition) {
+        return savedPosition;
+      } else {
+        return { x: 0, y: 0 };
+      }
+    },
     extendRoutes(routes, resolve) {
       routes.push({
         path: '/page/:id',
