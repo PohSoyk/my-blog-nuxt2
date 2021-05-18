@@ -2,9 +2,9 @@
   <div>
     <header class="header">
       <h1 class="logo">
-        <a href="https://posonote.com">
+        <nuxt-link to="/">
           <img class="logoImg" src="/images/logo.svg" alt="PoSo's Note" />
-        </a>
+        </nuxt-link>
       </h1>
       <button class="menuBtn" @click="toggleOpen()">
         <img src="/images/icon_menu.svg" alt="menu" />

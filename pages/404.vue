@@ -6,15 +6,11 @@
         <dt class="status">404</dt>
         <dd class="message">ページが見つかりません</dd>
         <dd>
-          <v-btn
-            href="https://posonote.com"
-            class="btn"
-            outlined
-            large
-            color="#999"
-          >
-            Topページへ
-          </v-btn>
+          <nuxt-link to="/">
+            <v-btn class="btn" outlined large color="#999">
+              Topページへ
+            </v-btn>
+          </nuxt-link>
         </dd>
       </dl>
     </div>
