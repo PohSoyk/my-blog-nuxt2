@@ -28,6 +28,7 @@
         <Search />
         <Categories :categories="categories" />
         <PopularArticles :contents="popularArticles" />
+        <Latest :contents="contents" />
       </aside>
     </div>
     <Footer />
@@ -61,6 +62,14 @@ export default {
               }
             )
           ).data;
+    const {
+      data: { contents },
+    } = await axios.get(
+      `https://${$config.serviceId}.microcms.io/api/v1/blog`,
+      {
+        headers: { 'X-API-KEY': $config.apiKey },
+      }
+    );
     const categories = await axios.get(
       `https://${$config.serviceId}.microcms.io/api/v1/categories?limit=100`,
       {
@@ -71,6 +80,7 @@ export default {
       popularArticles,
       banner,
       categories: categories.data.contents,
+      contents,
     };
   },
   data() {
