@@ -14,7 +14,7 @@
         <a href="https://posonote.com/policy">プライバシーポリシー</a>
       </li>
       <li class="list">
-        <a href="https://posonote.com/contact">お問い合わせ</a>
+        <nuxt-link to="/contact">お問い合わせ</nuxt-link>
       </li>
     </ul>
     <p class="cr" v-html="`${copy} ${now} ${copyright}`"></p>

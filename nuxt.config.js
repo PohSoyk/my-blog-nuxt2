@@ -92,6 +92,7 @@ export default {
   css: [
     '@/assets/styles/reset.css',
     '@/assets/styles/colors.css',
+    '@/assets/styles/transition.css',
     {
       src: '~/node_modules/highlight.js/styles/hybrid.css',
       lang: 'css',
