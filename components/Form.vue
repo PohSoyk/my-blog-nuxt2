@@ -69,7 +69,7 @@
               <v-row>
                 <v-btn
                   d-block
-                  class="mx-auto px-12 white--text"
+                  class="mt-2 mt-sm-0 mx-auto px-12 white--text"
                   x-large
                   color="#385cae"
                   :loading="loading"

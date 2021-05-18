@@ -6,11 +6,11 @@
         <dt class="status">404</dt>
         <dd class="message">ページが見つかりません</dd>
         <dd>
-          <nuxt-link to="/">
-            <v-btn class="btn" outlined large color="#999">
+          <v-btn class="btn" outlined large color="#999">
+            <nuxt-link class="link" to="/">
               Topページへ
-            </v-btn>
-          </nuxt-link>
+            </nuxt-link>
+          </v-btn>
         </dd>
       </dl>
     </div>
@@ -22,8 +22,7 @@
 export default {
   head() {
     return {
-      titleTemplate: null,
-      title: "ページが見つかりません | PoSo's Note",
+      title: 'ページが見つかりません',
     };
   },
 };
@@ -55,5 +54,9 @@ export default {
 }
 .btn {
   margin-top: 30px;
+}
+
+.link {
+  color: #999;
 }
 </style>

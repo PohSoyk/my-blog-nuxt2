@@ -13,10 +13,10 @@
       <div class="menu" :class="{ isOpen: open }">
         <ul class="lists">
           <li class="list">
-            <a href="https://posonote.com/profile">プロフィール</a>
+            <nuxt-link to="/profile">プロフィール</nuxt-link>
           </li>
           <li class="list">
-            <a href="https://posonote.com/portfolio">ポートフォリオ</a>
+            <nuxt-link to="/portfolio">ポートフォリオ</nuxt-link>
           </li>
           <li class="list">
             <nuxt-link to="/contact">お問い合わせ</nuxt-link>
