@@ -281,6 +281,18 @@ export default {
         payload: { popularArticles, banner },
       };
 
+      // プロフィールページ
+      const profile = {
+        route: '/profile',
+        payload: { popularArticles, banner },
+      };
+
+      // ポートフォリオページ
+      const portfolio = {
+        route: '/portfolio',
+        payload: { popularArticles, banner },
+      };
+
       const categories = await axios
         .get(`https://${SERVICE_ID}.microcms.io/api/v1/categories?fields=id`, {
           headers: { 'X-API-KEY': API_KEY },
@@ -315,6 +327,8 @@ export default {
         search,
         contact,
         policy,
+        profile,
+        portfolio,
         ...articles,
         ...pages,
         ...flattenCategoryPages,
