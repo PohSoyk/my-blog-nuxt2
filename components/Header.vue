@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header class="header">
+    <header class="header" :class="{ 'is-hidden': headerHiddenFlag }">
       <h1 class="logo">
         <nuxt-link to="/">
           <img class="logoImg" src="/images/logo.svg" alt="PoSo's Note" />
@@ -34,10 +34,18 @@ export default {
     return {
       params: this.params || '',
       open: false,
+      headerHiddenFlag: false,
     };
   },
   mounted() {
     this.params = location.search || '';
+    let startPos = 0;
+    window.addEventListener('scroll', () => {
+      const currentPos =
+        window.pageYOffset || document.documentElement.scrollTop;
+      this.headerHiddenFlag = currentPos > startPos;
+      startPos = currentPos;
+    });
   },
   methods: {
     setOpen(value) {
@@ -52,6 +60,10 @@ export default {
 
 <style scoped>
 @media (min-width: 800px) {
+  .is-hidden {
+    transform: translateY(-73px);
+  }
+
   .header {
     position: fixed;
     top: 0;
@@ -65,6 +77,7 @@ export default {
     z-index: 10;
     border-bottom: 1px solid var(--color-border);
     background-color: #fff;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .empty {
@@ -141,6 +154,10 @@ export default {
 }
 
 @media (max-width: 800px) {
+  .is-hidden {
+    transform: translateY(-64px);
+  }
+
   .header {
     position: fixed;
     top: 0;
@@ -153,6 +170,7 @@ export default {
     padding: 16px;
     z-index: 10;
     border-bottom: 1px solid var(--color-border);
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .empty {
@@ -176,6 +194,29 @@ export default {
     cursor: pointer;
   }
 
+  @keyframes headerShow {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+  @keyframes headerHidden {
+    from {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+
+    to {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+  }
+
   .menu {
     position: absolute;
     left: 0;
@@ -187,8 +228,10 @@ export default {
     border-bottom: 1px solid var(--color-border);
     z-index: 2001;
     padding-top: 8px;
+    animation: headerHidden 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
     &.isOpen {
+      animation: headerShow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
       display: flex;
     }
   }

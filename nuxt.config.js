@@ -130,7 +130,7 @@ export default {
   proxy: ['http://localhost:9000/.netlify'],
   pwa: {
     manifest: {
-      name: "PoSo`s Note",
+      name: 'PoSo`s Note',
       lang: 'ja',
     },
     workbox: {
