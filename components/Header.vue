@@ -50,6 +50,13 @@ export default {
         startPos = currentPos;
       }, 100);
     });
+    document.addEventListener(
+      'touchmove',
+      (event) => {
+        event.preventDefault();
+      },
+      { passive: false }
+    );
   },
   methods: {
     setOpen(value) {
