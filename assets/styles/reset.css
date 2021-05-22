@@ -36,7 +36,6 @@ body, input {
   line-height: 1.5;
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Roboto, "Droid Sans", "游ゴシック", YuGothic, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", sans-serif;
   color: #2b2c30;
-  overscroll-behavior: none;
 }
 
 ol, ul {
