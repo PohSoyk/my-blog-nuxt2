@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div class="wrapper" :class="{ 'change-top': stickyChangeFlag }">
     <h1 class="pageTitle">最新の記事</h1>
     <ul>
       <li v-for="content in contents" :key="content.id" class="list">
@@ -20,6 +20,24 @@ export default {
       default: () => [],
     },
   },
+  data() {
+    return {
+      stickyChangeFlag: false,
+    };
+  },
+  mounted() {
+    let startPos = 0;
+    let timeout = {};
+    window.addEventListener('scroll', () => {
+      const currentPos =
+        window.pageYOffset || document.documentElement.scrollTop;
+      this.stickyChangeFlag = currentPos - startPos > 1;
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        startPos = currentPos;
+      }, 100);
+    });
+  },
 };
 </script>
 
@@ -28,6 +46,11 @@ export default {
   .wrapper {
     position: sticky !important;
     top: 115px;
+    transition: top 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .change-top {
+    top: 35px !important;
   }
 
   .pageTitle {

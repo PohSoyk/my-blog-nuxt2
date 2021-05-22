@@ -1,6 +1,6 @@
 <template>
   <div class="share">
-    <ul class="shareLists">
+    <ul class="shareLists" :class="{ 'change-top': stickyChangeFlag }">
       <li class="shareList">
         <a :href="twitterLink" target="_blank" rel="noopener noreferrer">
           <img src="/images/icon_twitter.svg" alt="Twitter" />
@@ -41,6 +41,11 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      stickyChangeFlag: false,
+    };
+  },
   computed: {
     twitterLink() {
       return `https://twitter.com/intent/tweet?text=${this.title}&url=https://posonote.com/${this.id}/&hashtags=PoSoNote`;
@@ -51,6 +56,19 @@ export default {
     hatenaLink() {
       return `https://b.hatena.ne.jp/entry/https://posonote.com/${this.id}/`;
     },
+  },
+  mounted() {
+    let startPos = 0;
+    let timeout = {};
+    window.addEventListener('scroll', () => {
+      const currentPos =
+        window.pageYOffset || document.documentElement.scrollTop;
+      this.stickyChangeFlag = currentPos - startPos > 1;
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        startPos = currentPos;
+      }, 100);
+    });
   },
 };
 </script>
@@ -67,10 +85,15 @@ export default {
     }
   }
 
+  .change-top {
+    top: 40px !important;
+  }
+
   .shareLists {
     display: block;
     position: sticky;
     top: 120px;
+    transition: top 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .shareList {
