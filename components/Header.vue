@@ -40,20 +40,20 @@ export default {
   mounted() {
     this.params = location.search || '';
     let startPos = 0;
-    let timeout = {};
     window.addEventListener('scroll', () => {
-      clearTimeout(timeout);
-      timeout = setTimeout(() => {
-        const currentPos =
-          window.pageYOffset || document.documentElement.scrollTop;
-        this.headerHiddenFlag = currentPos - startPos > 0;
-        startPos = currentPos;
-      }, 100);
+      const currentPos =
+        window.pageYOffset || document.documentElement.scrollTop;
+      this.headerHiddenFlag = currentPos - startPos > 0;
+      startPos = currentPos;
     });
     document.addEventListener(
       'touchmove',
       (event) => {
-        event.preventDefault();
+        const defaultPos =
+          window.pageYOffset || document.documentElement.scrollTop;
+        if (defaultPos < startPos) {
+          event.preventDefault();
+        }
       },
       { passive: false }
     );
