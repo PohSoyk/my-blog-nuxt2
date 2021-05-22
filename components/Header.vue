@@ -40,10 +40,15 @@ export default {
   mounted() {
     this.params = location.search || '';
     let startPos = 0;
+    let timeOut = {};
     window.addEventListener('scroll', () => {
-      const currentPos = document.documentElement.scrollTop;
-      this.headerHiddenFlag = currentPos - startPos > 0;
-      startPos = currentPos;
+      clearTimeout(timeOut);
+      timeOut = setTimeout(() => {
+        const currentPos =
+          window.pageYOffset || document.documentElement.scrollTop;
+        this.headerHiddenFlag = currentPos - startPos > 0;
+        startPos = currentPos;
+      }, 100);
     });
   },
   methods: {
