@@ -40,10 +40,10 @@ export default {
   mounted() {
     this.params = location.search || '';
     let startPos = 0;
-    let timeOut = {};
+    let timeout = {};
     window.addEventListener('scroll', () => {
-      clearTimeout(timeOut);
-      timeOut = setTimeout(() => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
         const currentPos =
           window.pageYOffset || document.documentElement.scrollTop;
         this.headerHiddenFlag = currentPos - startPos > 0;
