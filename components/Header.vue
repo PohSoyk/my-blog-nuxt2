@@ -39,24 +39,13 @@ export default {
   },
   mounted() {
     this.params = location.search || '';
-    let startPos = 0;
+    // let startPos = 0;
     window.addEventListener('scroll', () => {
       const currentPos =
         window.pageYOffset || document.documentElement.scrollTop;
-      this.headerHiddenFlag = currentPos - startPos > 0;
-      startPos = currentPos;
+      this.headerHiddenFlag = currentPos > 100;
+      // startPos = currentPos;
     });
-    document.addEventListener(
-      'touchmove',
-      (event) => {
-        const defaultPos =
-          window.pageYOffset || document.documentElement.scrollTop;
-        if (defaultPos <= 0) {
-          window.scrollBy(0, 1);
-        }
-      },
-      { passive: false }
-    );
   },
   methods: {
     setOpen(value) {
