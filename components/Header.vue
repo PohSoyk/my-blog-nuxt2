@@ -43,7 +43,7 @@ export default {
     window.addEventListener('scroll', () => {
       const currentPos =
         window.pageYOffset || document.documentElement.scrollTop;
-      this.headerHiddenFlag = currentPos > startPos;
+      this.headerHiddenFlag = currentPos - startPos > 0;
       startPos = currentPos;
     });
   },
