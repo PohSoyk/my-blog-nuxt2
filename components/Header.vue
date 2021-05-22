@@ -41,8 +41,7 @@ export default {
     this.params = location.search || '';
     let startPos = 0;
     window.addEventListener('scroll', () => {
-      const currentPos =
-        window.pageYOffset || document.documentElement.scrollTop;
+      const currentPos = document.documentElement.scrollTop;
       this.headerHiddenFlag = currentPos - startPos > 0;
       startPos = currentPos;
     });
