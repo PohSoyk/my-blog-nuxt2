@@ -39,12 +39,16 @@ export default {
   },
   mounted() {
     this.params = location.search || '';
-    // let startPos = 0;
+    let startPos = 0;
+    let timeout = {};
     window.addEventListener('scroll', () => {
-      const currentPos =
-        window.pageYOffset || document.documentElement.scrollTop;
-      this.headerHiddenFlag = currentPos > 100;
-      // startPos = currentPos;
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        const currentPos =
+          window.pageYOffset || document.documentElement.scrollTop;
+        this.headerHiddenFlag = currentPos - startPos > 1;
+        startPos = currentPos;
+      }, 100);
     });
   },
   methods: {
