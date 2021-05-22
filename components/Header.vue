@@ -51,8 +51,8 @@ export default {
       (event) => {
         const defaultPos =
           window.pageYOffset || document.documentElement.scrollTop;
-        if (defaultPos < startPos) {
-          event.preventDefault();
+        if (defaultPos <= 0) {
+          window.scrollBy(0, 1);
         }
       },
       { passive: false }
