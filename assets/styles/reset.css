@@ -110,3 +110,7 @@ color: var(--color-text-placeholder);
     display: none;
   }
 }
+
+.container {
+  padding: 0;
+}

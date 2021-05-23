@@ -1,8 +1,9 @@
 <template>
   <div class="wrapper">
+    <h1 class="pageTitle">使用しているCMS</h1>
     <a
       v-if="banner && banner.image"
-      :href="`${banner.url}?utm_source=CTA&utm_medium=content-text&utm_campaign=${id}-03`"
+      :href="`${banner.url}`"
       class="link"
       target="banner"
     >
@@ -34,8 +35,12 @@ export default {
 </script>
 
 <style scoped>
+.wrapper a {
+  text-align: center;
+}
+
 .image {
-  width: 300px;
+  width: 280px;
   border-radius: 5px;
 }
 
@@ -44,9 +49,36 @@ export default {
   margin-bottom: 40px;
 }
 
-@media (max-width: 1160px) {
-  .wrapper {
-    text-align: center;
+@media (min-width: 1160px) {
+  .pageTitle {
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #eee;
+    padding: 6px 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+  }
+}
+
+@media (min-width: 520px) and (max-width: 1160px) {
+  .pageTitle {
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #eee;
+    padding: 6px 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+  }
+}
+
+@media (max-width: 520px) {
+  .pageTitle {
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #eee;
+    padding: 6px 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
   }
 }
 </style>
