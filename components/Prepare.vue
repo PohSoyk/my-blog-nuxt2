@@ -9,11 +9,11 @@
         このページは現在製作中です。<br />今しばらくお待ち下さい。
       </dd>
       <dd>
-        <v-btn class="btn" outlined large color="#999">
-          <nuxt-link class="link" to="/">
+        <nuxt-link class="link" to="/">
+          <v-btn class="btn" outlined large color="#999">
             Topページへ
-          </nuxt-link>
-        </v-btn>
+          </v-btn>
+        </nuxt-link>
       </dd>
     </dl>
   </div>
