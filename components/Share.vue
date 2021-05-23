@@ -1,5 +1,8 @@
 <template>
   <div class="share">
+    <div class="shareMessage">
+      <span>よかったらシェアしてね！</span>
+    </div>
     <ul class="shareLists" :class="{ 'change-top': stickyChangeFlag }">
       <li class="shareList">
         <a :href="twitterLink" target="_blank" rel="noopener noreferrer">
@@ -85,6 +88,10 @@ export default {
     }
   }
 
+  .shareMessage {
+    display: none;
+  }
+
   .change-top {
     top: 40px !important;
   }
@@ -112,10 +119,19 @@ export default {
     }
   }
 
+  .shareMessage {
+    display: none;
+  }
+
+  .change-top {
+    top: 40px !important;
+  }
+
   .shareLists {
     display: block;
     position: sticky;
     top: 100px;
+    transition: top 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .shareList {
@@ -126,10 +142,49 @@ export default {
 
 @media (max-width: 600px) {
   .share {
-    margin: 40px 0 0;
+    margin: 30px 0 0;
 
     img {
       max-height: 20px;
+    }
+  }
+
+  .shareMessage {
+    padding-bottom: 0.75em;
+    text-align: center;
+
+    span {
+      position: relative;
+      display: inline-block;
+      padding: 0 1.5em;
+      font-size: 14px;
+      background: linear-gradient(transparent 60%, #ffe0c1 75%);
+    }
+
+    ::before {
+      left: 0;
+      -webkit-transform: rotate(-40deg);
+      transform: rotate(-40deg);
+      position: absolute;
+      bottom: 0;
+      display: block;
+      width: 1px;
+      height: 1.4em;
+      background-color: currentColor;
+      content: '';
+    }
+
+    ::after {
+      right: 0;
+      -webkit-transform: rotate(40deg);
+      transform: rotate(40deg);
+      position: absolute;
+      bottom: 0;
+      display: block;
+      width: 1px;
+      height: 1.4em;
+      background-color: currentColor;
+      content: '';
     }
   }
 
