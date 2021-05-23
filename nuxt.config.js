@@ -122,6 +122,9 @@ export default {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     treeShake: true,
+    defaultAssets: {
+      icons: 'mdiSvg',
+    }
   },
   dayjs: {
     locales: ['ja'],
