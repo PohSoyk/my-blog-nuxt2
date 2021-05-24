@@ -150,7 +150,7 @@ export default {
       display: inline-block;
       padding: 0 1.5em;
       font-size: 14px;
-      background: linear-gradient(transparent 60%, #ffe0c1 75%);
+      background: linear-gradient(transparent 60%, #ffe0c1 65%);
     }
 
     ::before {

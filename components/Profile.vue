@@ -149,4 +149,10 @@ export default {
   font-weight: 400;
   letter-spacing: 0.0071428571em;
 }
+
+@media (min-width: 600px) and (max-width: 1160px) {
+  .profile {
+    padding: 16px 60px;
+  }
+}
 </style>
