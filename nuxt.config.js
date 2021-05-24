@@ -124,7 +124,7 @@ export default {
     treeShake: true,
     defaultAssets: {
       icons: 'mdiSvg',
-    }
+    },
   },
   dayjs: {
     locales: ['ja'],
@@ -132,6 +132,9 @@ export default {
   },
   proxy: ['http://localhost:9000/.netlify'],
   pwa: {
+    meta: {
+      theme_color: '#331cbf'
+    },
     manifest: {
       name: "PoSo's Note",
       short_name: "PoSo's Note",
