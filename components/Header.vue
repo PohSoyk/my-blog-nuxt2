@@ -30,26 +30,21 @@
 
 <script>
 export default {
+  props: {
+    headerHiddenFlag: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+  },
   data() {
     return {
       params: this.params || '',
       open: false,
-      headerHiddenFlag: false,
     };
   },
   mounted() {
     this.params = location.search || '';
-    let startPos = 0;
-    let timeout = {};
-    window.addEventListener('scroll', () => {
-      const currentPos =
-        window.pageYOffset || document.documentElement.scrollTop;
-      this.headerHiddenFlag = currentPos - startPos > 1;
-      clearTimeout(timeout);
-      timeout = setTimeout(() => {
-        startPos = currentPos;
-      }, 100);
-    });
   },
   methods: {
     setOpen(value) {

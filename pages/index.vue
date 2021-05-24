@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <Header />
+    <Header :header-hidden-flag="headerHiddenFlag" />
     <div class="divider">
       <div class="container">
         <Breadcrumb :category="selectedCategory" />
@@ -132,7 +132,21 @@ export default {
       totalCount: this.totalCount || 0,
       pager: this.pager || [],
       loading: true,
+      headerHiddenFlag: false,
     };
+  },
+  mounted() {
+    let startPos = 0;
+    let timeout = {};
+    window.addEventListener('scroll', () => {
+      const currentPos =
+        window.pageYOffset || document.documentElement.scrollTop;
+      clearTimeout(timeout);
+      this.headerHiddenFlag = currentPos - startPos > 1;
+      timeout = setTimeout(() => {
+        startPos = currentPos;
+      }, 100);
+    });
   },
   head() {
     return {

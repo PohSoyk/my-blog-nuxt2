@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <Header />
+    <Header :header-hidden-flag="headerHiddenFlag" />
     <div class="divider">
       <p v-if="!data.id" class="loading">Now Loading...</p>
       <article v-if="data.id" class="article">
@@ -21,7 +21,11 @@
         </div>
         <Breadcrumb :category="data.category" />
         <div class="main">
-          <Share :id="data.id" :title="data.title" />
+          <Share
+            :id="data.id"
+            :title="data.title"
+            :header-hidden-flag="headerHiddenFlag"
+          />
           <div class="container">
             <h1 class="title">{{ data.title }}</h1>
             <Meta
@@ -37,6 +41,7 @@
             <RelatedBlogs
               v-if="data.related_blogs.length > 0"
               :blogs="data.related_blogs"
+              :header-hidden-flag="headerHiddenFlag"
             />
           </div>
         </div>
@@ -126,6 +131,7 @@ export default {
       toc: [],
       contents: [],
       categories: [],
+      headerHiddenFlag: false,
     };
   },
   async created() {
@@ -163,6 +169,19 @@ export default {
       $(elm).addClass('hljs');
     });
     this.data.body = $.html();
+  },
+  mounted() {
+    let startPos = 0;
+    let timeout = {};
+    window.addEventListener('scroll', () => {
+      const currentPos =
+        window.pageYOffset || document.documentElement.scrollTop;
+      clearTimeout(timeout);
+      this.headerHiddenFlag = currentPos - startPos > 1;
+      timeout = setTimeout(() => {
+        startPos = currentPos;
+      }, 100);
+    });
   },
   head() {
     return {

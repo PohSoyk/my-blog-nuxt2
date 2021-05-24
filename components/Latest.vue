@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper" :class="{ 'change-top': stickyChangeFlag }">
+  <div class="wrapper" :class="{ 'change-top': headerHiddenFlag }">
     <h1 class="pageTitle">最新の記事</h1>
     <ul>
       <li v-for="content in contents" :key="content.id" class="list">
@@ -19,24 +19,16 @@ export default {
       required: false,
       default: () => [],
     },
+    headerHiddenFlag: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   data() {
     return {
       stickyChangeFlag: false,
     };
-  },
-  mounted() {
-    let startPos = 0;
-    let timeout = {};
-    window.addEventListener('scroll', () => {
-      const currentPos =
-        window.pageYOffset || document.documentElement.scrollTop;
-      this.stickyChangeFlag = currentPos - startPos > 1;
-      clearTimeout(timeout);
-      timeout = setTimeout(() => {
-        startPos = currentPos;
-      }, 100);
-    });
   },
 };
 </script>

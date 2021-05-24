@@ -3,7 +3,7 @@
     <div class="shareMessage">
       <span>よかったらシェアしてね！</span>
     </div>
-    <ul class="shareLists" :class="{ 'change-top': stickyChangeFlag }">
+    <ul class="shareLists" :class="{ 'change-top': headerHiddenFlag }">
       <li class="shareList">
         <a :href="twitterLink" target="_blank" rel="noopener noreferrer">
           <img src="/images/icon_twitter.svg" alt="Twitter" />
@@ -43,6 +43,11 @@ export default {
       type: String,
       required: true,
     },
+    headerHiddenFlag: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   data() {
     return {
@@ -59,19 +64,6 @@ export default {
     hatenaLink() {
       return `https://b.hatena.ne.jp/entry/https://posonote.com/${this.id}/`;
     },
-  },
-  mounted() {
-    let startPos = 0;
-    let timeout = {};
-    window.addEventListener('scroll', () => {
-      const currentPos =
-        window.pageYOffset || document.documentElement.scrollTop;
-      this.stickyChangeFlag = currentPos - startPos > 1;
-      clearTimeout(timeout);
-      timeout = setTimeout(() => {
-        startPos = currentPos;
-      }, 100);
-    });
   },
 };
 </script>

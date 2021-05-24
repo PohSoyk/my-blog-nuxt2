@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <Header />
+    <Header :header-hidden-flag="headerHiddenFlag" />
     <div class="divider">
       <article class="article">
         <div class="ogimageWrap">
@@ -35,7 +35,11 @@
         </div>
         <Breadcrumb :category="category" />
         <div class="main">
-          <Share :id="id" :title="title" />
+          <Share
+            :id="id"
+            :title="title"
+            :header-hidden-flag="headerHiddenFlag"
+          />
           <div class="container">
             <h1 class="title">{{ title }}</h1>
             <Meta
@@ -59,7 +63,7 @@
         <Search />
         <Categories :categories="categories" />
         <PopularArticles :contents="popularArticles" />
-        <Latest :contents="contents" />
+        <Latest :contents="contents" :header-hidden-flag="headerHiddenFlag" />
       </aside>
     </div>
     <Footer />
@@ -158,7 +162,22 @@ export default {
     return {
       publishedAt: '',
       ogimage: null,
+      headerHiddenFlag: false,
     };
+  },
+  mounted() {
+    this.params = location.search || '';
+    let startPos = 0;
+    let timeout = {};
+    window.addEventListener('scroll', () => {
+      const currentPos =
+        window.pageYOffset || document.documentElement.scrollTop;
+      clearTimeout(timeout);
+      this.headerHiddenFlag = currentPos - startPos > 1;
+      timeout = setTimeout(() => {
+        startPos = currentPos;
+      }, 100);
+    });
   },
   head() {
     return {

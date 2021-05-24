@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <Header />
+    <Header :header-hidden-flag="headerHiddenFlag" />
     <div class="divider">
       <div class="container">
         <ul class="breadcrumb">
@@ -28,7 +28,7 @@
         <Search />
         <Categories :categories="categories" />
         <PopularArticles :contents="popularArticles" />
-        <Latest :contents="contents" />
+        <Latest :contents="contents" :header-hidden-flag="headerHiddenFlag" />
       </aside>
     </div>
     <Footer />
@@ -87,7 +87,22 @@ export default {
     return {
       categories: this.categories || [],
       contents: this.contents || [],
+      headerHiddenFlag: false,
     };
+  },
+  mounted() {
+    this.params = location.search || '';
+    let startPos = 0;
+    let timeout = {};
+    window.addEventListener('scroll', () => {
+      const currentPos =
+        window.pageYOffset || document.documentElement.scrollTop;
+      clearTimeout(timeout);
+      this.headerHiddenFlag = currentPos - startPos > 1;
+      timeout = setTimeout(() => {
+        startPos = currentPos;
+      }, 100);
+    });
   },
   head() {
     return {

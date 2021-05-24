@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <Header />
+    <Header :header-hidden-flag="headerHiddenFlag" />
     <div class="container">
       <dl>
         <dt class="status">404</dt>
@@ -20,6 +20,24 @@
 
 <script>
 export default {
+  data() {
+    return {
+      headerHiddenFlag: false,
+    };
+  },
+  mounted() {
+    let startPos = 0;
+    let timeout = {};
+    window.addEventListener('scroll', () => {
+      const currentPos =
+        window.pageYOffset || document.documentElement.scrollTop;
+      clearTimeout(timeout);
+      this.headerHiddenFlag = currentPos - startPos > 1;
+      timeout = setTimeout(() => {
+        startPos = currentPos;
+      }, 100);
+    });
+  },
   head() {
     return {
       title: 'ページが見つかりません',

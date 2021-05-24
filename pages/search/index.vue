@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <Header />
+    <Header :header-hidden-flag="headerHiddenFlag" />
     <div class="divider">
       <div class="container">
         <input
@@ -130,11 +130,25 @@ export default {
       pager: this.pager || [],
       loading: true,
       q: this.$route.query.q,
+      headerHiddenFlag: false,
     };
   },
   created() {
     const query = this.$route.query;
     this.search(query.q);
+  },
+  mounted() {
+    let startPos = 0;
+    let timeout = {};
+    window.addEventListener('scroll', () => {
+      const currentPos =
+        window.pageYOffset || document.documentElement.scrollTop;
+      clearTimeout(timeout);
+      this.headerHiddenFlag = currentPos - startPos > 1;
+      timeout = setTimeout(() => {
+        startPos = currentPos;
+      }, 100);
+    });
   },
   methods: {
     setSearchable() {
