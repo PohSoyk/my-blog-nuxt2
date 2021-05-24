@@ -134,7 +134,9 @@ export default {
   pwa: {
     manifest: {
       name: "PoSo's Note",
+      short_name: "PoSo's Note",
       lang: 'ja',
+      theme_color: 'pwa.meta.theme_color',
     },
     workbox: {
       offlineAssets: [

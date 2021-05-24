@@ -15,6 +15,7 @@
       <p class="name">PoSo</p>
       <div class="icons">
         <v-btn
+          aria-label="twitter"
           href="https://twitter.com/PohSoyk"
           target="_blank"
           rel="noopener noreferrer"
@@ -24,6 +25,7 @@
           <v-icon>{{ Twitter }}</v-icon>
         </v-btn>
         <v-btn
+          aria-label="github"
           href="https://github.com/PohSoyk"
           target="_blank"
           rel="noopener noreferrer"
