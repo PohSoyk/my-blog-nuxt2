@@ -5,33 +5,3 @@
   from = "/*"
   to = "/404.html"
   status = 404
-
-[[redirects]]
-  from = "http://posonote.netlify.app/*"
-  to = "https://posonote.netlify.app/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "https://posonote.netlify.app/*"
-  to = "https://posonote.com/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "http://posonote.com/*"
-  to = "https://posonote.com/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "http://www.posonote.com/*"
-  to = "https://www.posonote.com/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "https://www.posonote.com/*"
-  to = "https://posonote.com/:splat"
-  status = 301
-  force = true
