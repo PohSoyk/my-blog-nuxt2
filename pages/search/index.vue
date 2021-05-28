@@ -27,17 +27,19 @@
           <ul>
             <li v-for="content in contents" :key="content.id" class="list">
               <nuxt-link :to="`/${content.id}`" class="link">
-                <picture>
-                  <source
-                    type="image/webp"
-                    :srcset="content.ogimage.url + '?w=670&fm=webp'"
-                  />
-                  <img
-                    :src="content.ogimage.url + '?w=670'"
-                    class="ogimage"
-                    alt
-                  />
-                </picture>
+                <div class="pictureBox">
+                  <picture>
+                    <source
+                      type="image/webp"
+                      :srcset="content.ogimage.url + '?w=670&fm=webp'"
+                    />
+                    <img
+                      :src="content.ogimage.url + '?w=670'"
+                      class="ogimage"
+                      alt
+                    />
+                  </picture>
+                </div>
                 <dl class="content">
                   <dt class="title">{{ content.title }}</dt>
                   <dd>
@@ -46,6 +48,7 @@
                       :author="content.writer.name"
                       :category="content.category"
                     />
+                    <span class="description">{{ content.description }}</span>
                   </dd>
                 </dl>
               </nuxt-link>
@@ -324,6 +327,29 @@ export default {
     justify-content: space-between;
   }
 
+  .pictureBox {
+    width: 334px;
+    overflow: hidden;
+    height: 175px;
+    background: #fff;
+    border-radius: 5px;
+  }
+
+  .ogimage {
+    width: 335px;
+    height: 176px;
+    border-radius: 5px;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 0.28s;
+  }
+
+  .link:hover {
+    .ogimage {
+      transform: scale(1.035);
+      opacity: 0.76;
+    }
+  }
+
   .ogimage {
     width: 335px;
     height: 176px;
@@ -338,6 +364,20 @@ export default {
   .title {
     font-size: 20px;
     font-weight: bold;
+  }
+
+  .title:hover {
+    color: #616269;
+  }
+
+  .description {
+    color: #616269;
+    font-size: 14px;
+    line-height: 1.75;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
   }
 }
 @media (min-width: 820px) and (max-width: 1160px) {
@@ -460,6 +500,16 @@ export default {
     font-size: 20px;
     font-weight: bold;
   }
+
+  .description {
+    color: #616269;
+    font-size: 14px;
+    line-height: 1.8;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
 }
 @media (max-width: 820px) {
   .loader {
@@ -575,6 +625,11 @@ export default {
     font-size: 20px;
     font-weight: bold;
     margin-top: 10px;
+  }
+
+  .description {
+    color: #616269;
+    font-size: 14px;
   }
 }
 </style>

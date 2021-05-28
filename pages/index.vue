@@ -310,11 +310,11 @@ export default {
   .description {
     color: #616269;
     font-size: 14px;
-    /* line-height: 1.9;
+    line-height: 1.75;
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 4; */
+    -webkit-line-clamp: 3;
   }
 }
 @media (min-width: 820px) and (max-width: 1160px) {
@@ -440,6 +440,7 @@ export default {
   .description {
     color: #616269;
     font-size: 14px;
+    line-height: 1.8;
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
