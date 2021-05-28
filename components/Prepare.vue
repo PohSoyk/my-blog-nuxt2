@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="containers">
     <dl>
       <dt>
         <img class="status" src="/images/icon_clock.svg" alt />
@@ -20,7 +20,7 @@
 </template>
 
 <style scoped>
-.container {
+.containers {
   justify-content: center;
   text-align: center;
   margin-top: 120px;

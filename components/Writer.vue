@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <h2 class="title">ABOUT ME</h2>
-    <div class="container">
+    <div class="containers">
       <picture v-if="writer.image">
         <source
           type="image/webp"
@@ -39,7 +39,7 @@ export default {
 </script>
 
 <style scoped>
-.container {
+.containers {
   display: flex;
 }
 
