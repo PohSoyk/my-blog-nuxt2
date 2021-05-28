@@ -158,9 +158,6 @@ export default {
 </script>
 
 <style scoped>
-.wrapper {
-  overscroll-behavior-y: none;
-}
 @media (min-width: 1160px) {
   .loader {
     color: #ccc;

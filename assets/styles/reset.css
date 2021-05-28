@@ -73,6 +73,10 @@ input, select, button {
 color: var(--color-text-placeholder);
 }
 
+.wrapper {
+  overscroll-behavior-y: none;
+}
+
 ::-webkit-input-placeholder {
 color: var(--color-text-placeholder);
 }
