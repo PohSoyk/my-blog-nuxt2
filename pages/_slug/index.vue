@@ -40,7 +40,7 @@
             :title="title"
             :header-hidden-flag="headerHiddenFlag"
           />
-          <div class="container">
+          <div class="containers">
             <h1 class="title">{{ title }}</h1>
             <Meta
               :created-at="publishedAt || createdAt"
@@ -292,7 +292,7 @@ export default {
     width: 100%;
   }
 
-  .container {
+  .containers {
     position: relative;
     flex: 1;
     background-color: #fff;
@@ -387,7 +387,7 @@ export default {
     width: 100%;
   }
 
-  .container {
+  .containers {
     position: relative;
     flex: 1;
     background-color: #fff;
@@ -505,7 +505,7 @@ export default {
     width: 100%;
   }
 
-  .container {
+  .containers {
     position: relative;
     flex: 1;
     background-color: #fff;
@@ -622,7 +622,7 @@ export default {
     width: 100%;
   }
 
-  .container {
+  .containers {
     position: relative;
     flex: 1;
     background-color: #fff;

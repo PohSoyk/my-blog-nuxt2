@@ -2,7 +2,7 @@
   <div class="wrapper">
     <Header :header-hidden-flag="headerHiddenFlag" />
     <div class="divider">
-      <div class="container">
+      <div class="containers">
         <ul class="breadcrumb">
           <li class="breadcrumbList">
             <nuxt-link to="/">
@@ -132,7 +132,7 @@ export default {
     margin: 20px auto 0;
   }
 
-  .container {
+  .containers {
     width: 820px;
   }
 

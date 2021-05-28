@@ -2,7 +2,7 @@
   <div class="wrapper">
     <Header :header-hidden-flag="headerHiddenFlag" />
     <div class="divider">
-      <div class="container">
+      <div class="containers">
         <Breadcrumb :category="selectedCategory" />
         <div v-show="contents.length === 0" class="loader">
           記事がありません
@@ -208,7 +208,7 @@ export default {
     margin: 20px auto 0;
   }
 
-  .container {
+  .containers {
     width: 820px;
   }
 
@@ -310,6 +310,11 @@ export default {
   .description {
     color: #616269;
     font-size: 14px;
+    /* line-height: 1.9;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4; */
   }
 }
 @media (min-width: 820px) and (max-width: 1160px) {

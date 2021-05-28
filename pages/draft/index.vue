@@ -26,7 +26,7 @@
             :title="data.title"
             :header-hidden-flag="headerHiddenFlag"
           />
-          <div class="container">
+          <div class="containers">
             <h1 class="title">{{ data.title }}</h1>
             <Meta
               :created-at="data.publishedAt || data.createdAt"
@@ -323,7 +323,7 @@ export default {
     transition: transform 0.5s ease, opacity 0.5s ease;
   }
 
-  .container {
+  .containers {
     position: relative;
     flex: 1;
     background-color: #fff;
@@ -418,7 +418,7 @@ export default {
     transition: transform 0.5s ease;
   }
 
-  .container {
+  .containers {
     position: relative;
     flex: 1;
     background-color: #fff;
@@ -537,7 +537,7 @@ export default {
     transition: transform 0.5s ease;
   }
 
-  .container {
+  .containers {
     position: relative;
     flex: 1;
     background-color: #fff;
@@ -655,7 +655,7 @@ export default {
     transition: transform 0.5s ease;
   }
 
-  .container {
+  .containers {
     position: relative;
     flex: 1;
     background-color: #fff;

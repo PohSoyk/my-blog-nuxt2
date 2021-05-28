@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <Header :header-hidden-flag="headerHiddenFlag" />
-    <div class="container">
+    <div class="containers">
       <dl>
         <dt class="status">404</dt>
         <dd class="message">ページが見つかりません</dd>
@@ -52,7 +52,7 @@ export default {
   flex-direction: column;
   height: 100vh;
 }
-.container {
+.containers {
   flex: 1;
   display: flex;
   align-items: center;
