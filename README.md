@@ -1,5 +1,6 @@
 # microcms-blogからclone
-サイト: https://blog.microcms.io
+クローン元サイト: https://blog.microcms.io
+サイト: https://posonote.com/
 
 ## 機能
 - 記事一覧
@@ -44,8 +45,25 @@ type: リスト形式
 | description | 概要 | テキストフィールド |
 | ogimage | OGP画像 | 画像 |
 | writer | 著者 | コンテンツ参照 - 著者 |
-| ~~partner~~ | ~~パートナー~~ | ~~コンテンツ参照~~ - ~~パートナー~~ |
+| ~~partner~~ | ~~パートナー~~ | ~~コンテンツ参照 - パートナー~~ |
 | related_blogs | 関連記事 | 複数コンテンツ参照 - ブログ |
+
+#### [^1]: カスタムフィールド *←NEW*
+カスタムフィールド名: リッチエディタ  
+カスタムフィールドID: richEditor
+
+| フィールドID | 表示名 | 種類 |
+| ------------- | ------------- | ----- |
+| text | リッチエディタ | リッチエディタ |
+
+カスタムフィールド名: HTML  
+カスタムフィールドID: html
+
+| フィールドID | 表示名 | 種類 |
+| ------------- | ------------- | ----- |
+| text | HTML | テキストエリア |
+
+参照: [microcms-blog:リッチエディタを使いつつ一部はHTMLで入稿する](https://blog.microcms.io/input-richeditor-and-html "microcms-blog")
 
 ### 著者
 endpoint: authors  
