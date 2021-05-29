@@ -178,6 +178,12 @@ export default {
         startPos = currentPos;
       }, 100);
     });
+    if (window.iframely) {
+      window.iframely.load();
+    }
+    if (window.twttr) {
+      window.twttr.widgets.load();
+    }
   },
   head() {
     return {

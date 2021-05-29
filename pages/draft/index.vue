@@ -30,7 +30,7 @@
             <h1 class="title">{{ data.title }}</h1>
             <Meta
               :created-at="data.publishedAt || data.createdAt"
-              :author="data.writer !== null ? data.writer.name : ''"
+              :updated-at="data.updatedAt"
               :category="data.category"
             />
             <Toc :id="data.id" :toc="toc" :visible="data.toc_visible" />
@@ -181,11 +181,17 @@ export default {
       timeout = setTimeout(() => {
         startPos = currentPos;
       }, 100);
+      if (window.iframely) {
+        window.iframely.load();
+      }
+      if (window.twttr) {
+        window.twttr.widgets.load();
+      }
     });
   },
   head() {
     return {
-      title: this.title,
+      title: this.data.title,
       meta: [
         {
           hid: 'description',
