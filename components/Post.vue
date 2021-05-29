@@ -18,7 +18,7 @@ export default {
 @media (min-width: 600px) {
   .post {
     margin-top: 40px;
-    font-size: 18px;
+    font-size: 17px;
 
     & >>> h1 {
       font-size: 30px;
@@ -133,6 +133,32 @@ export default {
       & > code {
         padding: 10px 20px;
         border-radius: 5px;
+      }
+    }
+    & >>> .frame {
+      margin-bottom: 1.2em;
+      position: relative;
+
+      & > .frameContent {
+        overflow: auto;
+        border: 2px solid #999;
+        padding: 1em 1.5em;
+        position: relative;
+        border-radius: 5px;
+        background: #fff;
+        color: #000;
+      }
+
+      & > .frameTitle {
+        display: inline-block;
+        margin: 0 1em;
+        border-radius: 5px 5px 0 0;
+        background-color: #1e77c4;
+        padding: 2px 1em;
+        position: relative;
+        font-weight: bold;
+        color: #fff;
+        top: 1px;
       }
     }
   }
@@ -251,6 +277,32 @@ export default {
       & > code {
         padding: 8px 16px;
         border-radius: 3px;
+      }
+    }
+    & >>> .frame {
+      margin-bottom: 1.2em;
+      position: relative;
+
+      & > .frameContent {
+        overflow: auto;
+        border: 2px solid #999;
+        padding: 1em 1.5em;
+        position: relative;
+        border-radius: 5px;
+        background: #fff;
+        color: #000;
+      }
+
+      & > .frameTitle {
+        display: inline-block;
+        margin: 0 1em;
+        border-radius: 5px 5px 0 0;
+        background-color: #1e77c4;
+        padding: 2px 1em;
+        position: relative;
+        font-weight: bold;
+        color: #fff;
+        top: 1px;
       }
     }
   }
