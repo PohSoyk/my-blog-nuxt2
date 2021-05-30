@@ -15,12 +15,12 @@ github: https://github.com/wantainc/microcms-blog
 - パンくずリスト
 - 記事詳細
   - 目次
-  - **リッチテキスト・HTML同時入稿** *←変更点*
+  - **リッチテキスト・HTML同時入稿** *←Changes*
   - 著者
   - SNSシェアボタン
   - 下書きプレビュー
   - 関連記事
-- **問い合わせフォーム**  *←変更点*
+- **問い合わせフォーム** *←Changes*
 - サイトマップ
 - バナー
 - Google Analytics
@@ -46,14 +46,14 @@ type: リスト形式
 | title | タイトル | テキストフィールド |
 | category | カテゴリー | コンテンツ参照 - カテゴリー |
 | toc_visible | 目次 | 真偽値 |
-| body | 本文 | 繰り返し -2件のフィールド[1](#1-カスタムフィールド-new) |
+| body | 本文 | 繰り返し -2件のフィールド[1](#1-カスタムフィールド-Changes) |
 | description | 概要 | テキストフィールド |
 | ogimage | OGP画像 | 画像 |
 | writer | 著者 | コンテンツ参照 - 著者 |
 | ~~partner~~ | ~~パートナー~~ | ~~コンテンツ参照 - パートナー~~ |
 | related_blogs | 関連記事 | 複数コンテンツ参照 - ブログ |
 
-#### [1]: カスタムフィールド  *←変更点*
+#### [1]: カスタムフィールド *←Changes*
 カスタムフィールド名: リッチエディタ  
 カスタムフィールドID: richEditor
 
@@ -122,6 +122,7 @@ type: オブジェクト形式
 - API_KEY（microCMSのAPIキー）
 - SERVICE_ID（microCMSのサービスID）
 - GA_ID（Google AnalyticsのID）
+*** ↓Changes**
 - OAUTH_USER (gmailアドレス)
 - OAUTH_CLIENT_ID (gmailのOAuth 2.0 クライアントID)
 - OAUTH_CLIENT_SECRET (gmailのOAuth 2.0 クライアントシークレット)
@@ -132,6 +133,7 @@ type: オブジェクト形式
 API_KEY=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 SERVICE_ID=your-service-id
 GA_ID=UA-xxxxxxxxx-x
+** ↓Changes**
 OAUTH_USER=ユーザ名@gmail.com
 OAUTH_CLIENT_ID=クライアントID
 OAUTH_CLIENT_SECRET=クライアントシークレット
