@@ -1,6 +1,10 @@
-# microcms-blogからclone
-クローン元サイト: https://blog.microcms.io
+# PoSo's Note
 サイト: https://posonote.com/
+
+## microcms-blogからclone
+クローン元サイト: https://blog.microcms.io  
+github: https://github.com/wantainc/microcms-blog  
+このソフトウェアは、 [Apache 2.0ライセンス](https://www.apache.org/licenses/LICENSE-2.0.html)で配布されている製作物が含まれています。
 
 ## 機能
 - 記事一覧
@@ -11,11 +15,12 @@
 - パンくずリスト
 - 記事詳細
   - 目次
-  - **リッチテキスト・HTML同時入稿** *←NEW*
+  - **リッチテキスト・HTML同時入稿** *←変更点*
   - 著者
   - SNSシェアボタン
   - 下書きプレビュー
   - 関連記事
+- **問い合わせフォーム**  *←変更点*
 - サイトマップ
 - バナー
 - Google Analytics
@@ -41,14 +46,14 @@ type: リスト形式
 | title | タイトル | テキストフィールド |
 | category | カテゴリー | コンテンツ参照 - カテゴリー |
 | toc_visible | 目次 | 真偽値 |
-| body | 本文 | 繰り返し -2件のフィールド[^1] |
+| body | 本文 | 繰り返し -2件のフィールド[1](#1-カスタムフィールド-new) |
 | description | 概要 | テキストフィールド |
 | ogimage | OGP画像 | 画像 |
 | writer | 著者 | コンテンツ参照 - 著者 |
 | ~~partner~~ | ~~パートナー~~ | ~~コンテンツ参照 - パートナー~~ |
 | related_blogs | 関連記事 | 複数コンテンツ参照 - ブログ |
 
-#### [^1]: カスタムフィールド *←NEW*
+#### [1]: カスタムフィールド  *←変更点*
 カスタムフィールド名: リッチエディタ  
 カスタムフィールドID: richEditor
 
@@ -117,12 +122,20 @@ type: オブジェクト形式
 - API_KEY（microCMSのAPIキー）
 - SERVICE_ID（microCMSのサービスID）
 - GA_ID（Google AnalyticsのID）
+- OAUTH_USER (gmailアドレス)
+- OAUTH_CLIENT_ID (gmailのOAuth 2.0 クライアントID)
+- OAUTH_CLIENT_SECRET (gmailのOAuth 2.0 クライアントシークレット)
+- OAUTH_REFRESH_TOKEN (gmailのOAuth 2.0 リフレッシュトークン)
 
 例:
 ```
 API_KEY=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 SERVICE_ID=your-service-id
 GA_ID=UA-xxxxxxxxx-x
+OAUTH_USER=ユーザ名@gmail.com
+OAUTH_CLIENT_ID=クライアントID
+OAUTH_CLIENT_SECRET=クライアントシークレット
+OAUTH_REFRESH_TOKEN=リフレッシュトークン
 ```
 
 ## 開発方法
