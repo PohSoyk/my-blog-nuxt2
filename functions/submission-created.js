@@ -1,10 +1,5 @@
 require('dotenv').config();
-const {
-  OAUTH_USER,
-  OAUTH_CLIENT_ID,
-  OAUTH_CLIENT_SECRET,
-  OAUTH_REFRESH_TOKEN,
-} = process.env;
+const { USER, PASSWORD } = process.env;
 
 const nodemailer = require('nodemailer');
 
@@ -13,16 +8,16 @@ exports.handler = function (event, context, callback) {
 
   // OAuth認証情報
   const auth = {
-    type: 'OAuth2',
-    user: OAUTH_USER,
-    clientId: OAUTH_CLIENT_ID,
-    clientSecret: OAUTH_CLIENT_SECRET,
-    refreshToken: OAUTH_REFRESH_TOKEN,
+    user: USER,
+    pass: PASSWORD,
   };
 
   // トランスポート
   const transport = {
-    service: 'gmail',
+    pool: true,
+    host: '21.gmoserver.jp',
+    port: 465,
+    secure: true,
     auth,
   };
 
