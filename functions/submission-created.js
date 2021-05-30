@@ -36,13 +36,13 @@ exports.handler = function (event, context, callback) {
     if (error) {
       callback(error);
       console.log(info); // eslint-disable-line no-console
-      transport.close();
+      transporter.close();
     } else {
       callback(null, {
         statusCode: 200,
         body: 'ok',
       });
-      transport.close();
+      transporter.close();
     }
   });
 };
