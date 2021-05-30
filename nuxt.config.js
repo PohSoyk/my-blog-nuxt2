@@ -80,6 +80,7 @@ export default {
           'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/lazysizes.min.js',
         async: true,
       },
+      { src: 'https://cdn.iframe.ly/embed.js', async: true },
     ],
   },
   /*
