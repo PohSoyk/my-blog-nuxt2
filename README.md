@@ -122,7 +122,7 @@ type: オブジェクト形式
 - API_KEY（microCMSのAPIキー）
 - SERVICE_ID（microCMSのサービスID）
 - GA_ID（Google AnalyticsのID）  
-** ↓Changes**
+***↓Changes***
 - OAUTH_USER (gmailアドレス)
 - OAUTH_CLIENT_ID (gmailのOAuth 2.0 クライアントID)
 - OAUTH_CLIENT_SECRET (gmailのOAuth 2.0 クライアントシークレット)
@@ -133,7 +133,7 @@ type: オブジェクト形式
 API_KEY=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 SERVICE_ID=your-service-id
 GA_ID=UA-xxxxxxxxx-x
-** ↓Changes**
+  ↓Changes
 OAUTH_USER=ユーザ名@gmail.com
 OAUTH_CLIENT_ID=クライアントID
 OAUTH_CLIENT_SECRET=クライアントシークレット
