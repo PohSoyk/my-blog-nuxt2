@@ -153,7 +153,7 @@ export default {
         display: inline-block;
         margin: 0 1em;
         border-radius: 5px 5px 0 0;
-        background-color: #1e77c4;
+        background-color: #999;
         padding: 2px 1em;
         position: relative;
         font-weight: bold;
@@ -297,7 +297,7 @@ export default {
         display: inline-block;
         margin: 0 1em;
         border-radius: 5px 5px 0 0;
-        background-color: #1e77c4;
+        background-color: #999;
         padding: 2px 1em;
         position: relative;
         font-weight: bold;
