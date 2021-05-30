@@ -15,7 +15,7 @@ exports.handler = function (event, context, callback) {
   // トランスポート
   const transport = {
     pool: true,
-    host: '21.gmoserver.jp',
+    host: 'smtp21.gmoserver.jp',
     port: 465,
     secure: true,
     auth,
