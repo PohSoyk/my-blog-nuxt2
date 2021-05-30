@@ -121,8 +121,8 @@ type: オブジェクト形式
 プロジェクトルートに`.env`ファイルを作成し、以下の項目を設定してください。
 - API_KEY（microCMSのAPIキー）
 - SERVICE_ID（microCMSのサービスID）
-- GA_ID（Google AnalyticsのID）
-*** ↓Changes**
+- GA_ID（Google AnalyticsのID）  
+** ↓Changes**
 - OAUTH_USER (gmailアドレス)
 - OAUTH_CLIENT_ID (gmailのOAuth 2.0 クライアントID)
 - OAUTH_CLIENT_SECRET (gmailのOAuth 2.0 クライアントシークレット)
