@@ -403,8 +403,9 @@ export default {
 
   .title {
     font-family: 'Quicksand', 'Source Sans Pro', -apple-system,
-      BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-      sans-serif;
+      BlinkMacSystemFont, 'Helvetica Neue', YuGothic, 'ヒラギノ角ゴ ProN W3',
+      Hiragino Kaku Gothic ProN, Verdana, Roboto, 'Droid Sans', '游ゴシック',
+      YuGothic, 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', sans-serif;
     display: block;
     font-weight: bold;
     font-size: 40px;
@@ -521,8 +522,9 @@ export default {
 
   .title {
     font-family: 'Quicksand', 'Source Sans Pro', -apple-system,
-      BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-      sans-serif;
+      BlinkMacSystemFont, 'Helvetica Neue', YuGothic, 'ヒラギノ角ゴ ProN W3',
+      Hiragino Kaku Gothic ProN, Verdana, Roboto, 'Droid Sans', '游ゴシック',
+      YuGothic, 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', sans-serif;
     display: block;
     font-weight: bold;
     font-size: 40px;
@@ -637,8 +639,9 @@ export default {
 
   .title {
     font-family: 'Quicksand', 'Source Sans Pro', -apple-system,
-      BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-      sans-serif;
+      BlinkMacSystemFont, 'Helvetica Neue', YuGothic, 'ヒラギノ角ゴ ProN W3',
+      Hiragino Kaku Gothic ProN, Verdana, Roboto, 'Droid Sans', '游ゴシック',
+      YuGothic, 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', sans-serif;
     display: block;
     font-weight: bold;
     font-size: 24px;
