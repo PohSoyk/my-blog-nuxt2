@@ -21,7 +21,6 @@
                   name="name"
                   :error-messages="errors"
                   :counter="20"
-                  required
                   autocomplete="name"
                   color="#385cae"
                   label="お名前"
@@ -38,7 +37,6 @@
                   v-model="email"
                   name="email"
                   :error-messages="errors"
-                  required
                   autocomplete="email"
                   color="#385cae"
                   label="メールアドレス"
@@ -62,7 +60,7 @@
                   rows="5"
                 ></v-textarea>
               </ValidationProvider>
-              <div v-show="false" class="p-contact__item">
+              <div v-show="false">
                 <label for="message">スパムでない場合は空欄</label>
                 <input v-model="botField" type="text" name="bot-field" />
               </div>

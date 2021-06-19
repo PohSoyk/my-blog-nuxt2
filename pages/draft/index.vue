@@ -51,7 +51,7 @@
         <Banner :id="`draft-${data.id}`" :banner="banner" />
         <Search />
         <Categories :categories="categories" />
-        <Latest :contents="contents" />
+        <Latest :contents="contents" :header-hidden-flag="headerHiddenFlag" />
       </aside>
     </div>
     <Footer />
