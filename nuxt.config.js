@@ -59,7 +59,7 @@ export default {
       },
 
       { name: 'twitter:card', content: 'summary_large_image' },
-      { name: 'twitter:site', content: '@micro_cms' },
+      { name: 'twitter:site', content: '@PohSoyk' },
     ],
     link: [
       {
