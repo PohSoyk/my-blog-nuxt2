@@ -58,7 +58,7 @@ export default {
     twitterLink() {
       return `https://twitter.com/intent/tweet?text=${encodeURIComponent(
         this.title
-      )}&url=https://blog.microcms.io/${this.id}/&hashtags=microcms`;
+      )}&url=https://posonote.com/${this.id}/&hashtags=posonote`;
     },
     facebookLink() {
       return `https://www.facebook.com/sharer.php?u=https://posonote.com/${this.id}/`;
