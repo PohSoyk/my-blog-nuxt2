@@ -3,7 +3,7 @@ const { USER, PASSWORD } = process.env;
 
 const nodemailer = require('nodemailer');
 
-exports.handler = function (event, context, callback) {
+exports.handler = function (event, callback) {
   const { name, email, message } = JSON.parse(event.body).payload.data;
 
   // Auth認証情報
@@ -34,15 +34,24 @@ exports.handler = function (event, context, callback) {
 
   transporter.sendMail(mailOptions, function (error, info) {
     if (error) {
-      callback(error);
-      console.log(info); // eslint-disable-line no-console
-      transporter.close();
-    } else {
-      callback(null, {
-        statusCode: 200,
-        body: 'ok',
-      });
+      const response = {
+        statusCode: 500,
+        body: JSON.stringify({
+          info: info.massage,
+          error: error.message,
+        }),
+      };
+      callback(null, response);
       transporter.close();
     }
+    const response = {
+      statusCode: 200,
+      body: JSON.stringify({
+        info: info.massage,
+        message: `Email processed succesfully!`,
+      }),
+    };
+    callback(null, response);
+    transporter.close();
   });
 };
