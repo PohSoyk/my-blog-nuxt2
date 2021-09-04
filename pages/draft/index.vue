@@ -148,9 +148,26 @@ export default {
       return;
     }
     this.data = data;
-
+    // bodyのfieldIdを判定しframe用の場合HTMLに変換する
+    const body = data.body.reduce((result, current) => {
+      // fieldIdがframeか
+      if (current.fieldId === 'frame') {
+        // ある時（下記、初期データを操作）
+        result.push({
+          fieldId: current.fieldId,
+          text: `<div class="frame"><div class="frameTitle" style="background-color: ${current.color};">${current.title}</div><div class="frameContent" style="border-color: ${current.color};">${current.list}</div></div>`,
+        });
+      } else {
+        // 無いとき（新規に初期データを作成）
+        result.push({
+          fieldId: current.fieldId,
+          text: current.text,
+        });
+      }
+      return result;
+    }, []); // 初期値は[]
     let text = '';
-    data.body.forEach((data) => {
+    body.forEach((data) => {
       text += data.text;
     });
     const $ = cheerio.load(text);

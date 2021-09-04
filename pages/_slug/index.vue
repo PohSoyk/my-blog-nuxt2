@@ -126,7 +126,7 @@ export default {
     );
     // bodyのfieldIdを判定しframe用の場合HTMLに変換する
     const body = data.body.reduce((result, current) => {
-      // fieldIdがwakuか
+      // fieldIdがframeか
       if (current.fieldId === 'frame') {
         // ある時（下記、初期データを操作）
         result.push({
