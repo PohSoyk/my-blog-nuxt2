@@ -10,7 +10,13 @@
           {{ $dayjs(createdAt).format('YYYY/MM/DD') }}
         </time>
       </span>
-      <span v-if="updatedAt" class="timestamp">
+      <span
+        v-if="
+          $dayjs(updatedAt).format('YYYY-MM-DD') !==
+          $dayjs(createdAt).format('YYYY-MM-DD')
+        "
+        class="timestamp"
+      >
         <img src="/images/icon_undo.svg" alt />
         <time :datetime="$dayjs(updatedAt).format('YYYY-MM-DD')">
           {{ $dayjs(updatedAt).format('YYYY/MM/DD') }}
