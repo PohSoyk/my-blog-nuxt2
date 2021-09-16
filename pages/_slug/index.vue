@@ -72,7 +72,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from 'axios'
 
 export default {
   async asyncData({ params, payload, $config, app }) {
@@ -86,7 +86,7 @@ export default {
                 headers: { 'X-API-KEY': $config.apiKey },
               }
             )
-          ).data;
+          ).data
     const popularArticles =
       payload !== undefined
         ? payload.popularArticles
@@ -97,7 +97,7 @@ export default {
                 headers: { 'X-API-KEY': $config.apiKey },
               }
             )
-          ).data.articles;
+          ).data.articles
     const banner =
       payload !== undefined
         ? payload.banner
@@ -108,7 +108,7 @@ export default {
                 headers: { 'X-API-KEY': $config.apiKey },
               }
             )
-          ).data;
+          ).data
     const {
       data: { contents },
     } = await axios.get(
@@ -116,19 +116,17 @@ export default {
       {
         headers: { 'X-API-KEY': $config.apiKey },
       }
-    );
+    )
     const categories = await axios.get(
       `https://${$config.serviceId}.microcms.io/api/v1/categories?limit=100`,
       {
         headers: { 'X-API-KEY': $config.apiKey },
       }
-    );
+    )
     const intro =
-      data.introduction !== undefined
-        ? app.$parser(data.introduction).html
-        : '';
-    const body = app.$parser(data.body).html;
-    const toc = app.$parser(data.body).toc;
+      data.introduction !== undefined ? app.$parser(data.introduction).html : ''
+    const body = app.$parser(data.body).html
+    const toc = app.$parser(data.body).toc
 
     return {
       ...data,
@@ -139,33 +137,33 @@ export default {
       toc,
       categories: categories.data.contents,
       contents,
-    };
+    }
   },
   data() {
     return {
       publishedAt: '',
       ogimage: null,
       headerHiddenFlag: false,
-    };
+    }
   },
   mounted() {
-    this.params = location.search || '';
-    let startPos = 0;
-    let timeout = {};
+    this.params = location.search || ''
+    let startPos = 0
+    let timeout = {}
     window.addEventListener('scroll', () => {
       const currentPos =
-        window.pageYOffset || document.documentElement.scrollTop;
-      clearTimeout(timeout);
-      this.headerHiddenFlag = currentPos - startPos > 1;
+        window.pageYOffset || document.documentElement.scrollTop
+      clearTimeout(timeout)
+      this.headerHiddenFlag = currentPos - startPos > 1
       timeout = setTimeout(() => {
-        startPos = currentPos;
-      }, 100);
-    });
+        startPos = currentPos
+      }, 100)
+    })
     if (window.iframely) {
-      window.iframely.load();
+      window.iframely.load()
     }
     if (window.twttr) {
-      window.twttr.widgets.load();
+      window.twttr.widgets.load()
     }
   },
   head() {
@@ -190,9 +188,9 @@ export default {
           content: this.ogimage && this.ogimage.url,
         },
       ],
-    };
+    }
   },
-};
+}
 </script>
 
 <style scoped>

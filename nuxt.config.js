@@ -1,6 +1,6 @@
-import axios from 'axios';
-require('dotenv').config();
-const { API_KEY, SERVICE_ID, GA_ID } = process.env;
+import axios from 'axios'
+require('dotenv').config()
+const { API_KEY, SERVICE_ID, GA_ID } = process.env
 
 export default {
   publicRuntimeConfig: {
@@ -188,7 +188,7 @@ export default {
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
           exclude: /(node_modules)/,
-        });
+        })
       }
     },
     transpile: ['vee-validate/dist/rules'],
@@ -199,39 +199,39 @@ export default {
         path: '/page/:id',
         component: resolve(__dirname, 'pages/index.vue'),
         name: 'pages',
-      });
+      })
       routes.push({
         path: '/category/:categoryId/page/:id',
         component: resolve(__dirname, 'pages/index.vue'),
         name: 'categories',
-      });
+      })
       routes.push({
         path: '*',
         component: resolve(__dirname, 'pages/404.vue'),
         name: 'custom',
-      });
+      })
     },
   },
   generate: {
     interval: 100,
     async routes() {
       const range = (start, end) =>
-        [...Array(end - start + 1)].map((_, i) => start + i);
-      const limit = 50;
+        [...Array(end - start + 1)].map((_, i) => start + i)
+      const limit = 50
       const popularArticles = await axios
         .get(`https://${SERVICE_ID}.microcms.io/api/v1/popular-articles`, {
           headers: { 'X-API-KEY': API_KEY },
         })
         .then(({ data }) => {
-          return data.articles;
-        });
+          return data.articles
+        })
       const banner = await axios
         .get(`https://${SERVICE_ID}.microcms.io/api/v1/banner`, {
           headers: { 'X-API-KEY': API_KEY },
         })
         .then(({ data }) => {
-          return data;
-        });
+          return data
+        })
 
       // 詳細ページ
       const getArticles = (offset = 0) => {
@@ -243,9 +243,9 @@ export default {
             }
           )
           .then(async (res) => {
-            let articles = [];
+            let articles = []
             if (res.data.totalCount > offset + limit) {
-              articles = await getArticles(offset + limit);
+              articles = await getArticles(offset + limit)
             }
             return [
               ...res.data.contents.map((content) => ({
@@ -253,16 +253,16 @@ export default {
                 payload: { content, popularArticles, banner },
               })),
               ...articles,
-            ];
-          });
-      };
-      const articles = await getArticles();
+            ]
+          })
+      }
+      const articles = await getArticles()
 
       // 一覧ページ
       const index = {
         route: '/',
         payload: { popularArticles, banner },
-      };
+      }
 
       // 一覧のページング
       const pages = await axios
@@ -277,45 +277,45 @@ export default {
             route: `/page/${p}`,
             payload: { popularArticles, banner },
           }))
-        );
+        )
 
       // 検索ページ
       const search = {
         route: '/search',
         payload: { popularArticles, banner },
-      };
+      }
 
       // お問い合わせページ
       const contact = {
         route: '/contact',
         payload: { popularArticles, banner },
-      };
+      }
 
       // プライバシーポリシーページ
       const policy = {
         route: '/policy',
         payload: { popularArticles, banner },
-      };
+      }
 
       // プロフィールページ
       const profile = {
         route: '/profile',
         payload: { popularArticles, banner },
-      };
+      }
 
       // ポートフォリオページ
       const portfolio = {
         route: '/portfolio',
         payload: { popularArticles, banner },
-      };
+      }
 
       const categories = await axios
         .get(`https://${SERVICE_ID}.microcms.io/api/v1/categories?fields=id`, {
           headers: { 'X-API-KEY': API_KEY },
         })
         .then(({ data }) => {
-          return data.contents.map((content) => content.id);
-        });
+          return data.contents.map((content) => content.id)
+        })
 
       // カテゴリーページ
       const categoryPages = await Promise.all(
@@ -333,11 +333,11 @@ export default {
               return range(1, Math.ceil(res.data.totalCount / 10)).map((p) => ({
                 route: `/category/${category}/page/${p}`,
                 payload: { popularArticles, banner },
-              }));
+              }))
             })
         )
-      );
-      const flattenCategoryPages = [].concat.apply([], categoryPages);
+      )
+      const flattenCategoryPages = [].concat.apply([], categoryPages)
       return [
         index,
         search,
@@ -348,7 +348,7 @@ export default {
         ...articles,
         ...pages,
         ...flattenCategoryPages,
-      ];
+      ]
     },
     dir: 'dist',
   },
@@ -368,13 +368,13 @@ export default {
           link: 'https://posonote.com/feed.xml',
           description:
             '未経験からエンジニア転職を成功させた筆者が、IT技術、プログラミング、アプリ開発の情報を中心に発信中。人生で得たスキルや知識のアウトプットを行うブログです。',
-        };
+        }
 
         const posts = await axios
           .get(`https://${SERVICE_ID}.microcms.io/api/v1/blog`, {
             headers: { 'X-API-KEY': API_KEY },
           })
-          .then((res) => res.data.contents);
+          .then((res) => res.data.contents)
 
         posts.forEach((post) => {
           feed.addItem({
@@ -385,8 +385,8 @@ export default {
             content: post.description,
             date: new Date(post.publishedAt || post.createdAt),
             image: post.ogimage && post.ogimage.url,
-          });
-        });
+          })
+        })
       },
       cacheTime: 1000 * 60 * 15,
       type: 'rss2',
@@ -460,4 +460,4 @@ export default {
     //   type: 'rss2',
     // },
   ],
-};
+}

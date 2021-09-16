@@ -28,9 +28,9 @@ export default {
   data() {
     return {
       stickyChangeFlag: false,
-    };
+    }
   },
-};
+}
 </script>
 
 <style scoped>

@@ -1,8 +1,8 @@
-import Vue from 'vue';
-import VueScrollTo from 'vue-scrollto';
+import Vue from 'vue'
+import VueScrollTo from 'vue-scrollto'
 
-Vue.use(VueScrollTo);
+Vue.use(VueScrollTo)
 
 export default function vueScrollTo(context, inject) {
-  inject('scrollTo', VueScrollTo.scrollTo);
+  inject('scrollTo', VueScrollTo.scrollTo)
 }

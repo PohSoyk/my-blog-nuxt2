@@ -46,13 +46,13 @@
 </template>
 
 <script>
-import { mdiTwitter, mdiGithub } from '@mdi/js';
+import { mdiTwitter, mdiGithub } from '@mdi/js'
 export default {
   data: () => ({
     Twitter: mdiTwitter,
     Github: mdiGithub,
   }),
-};
+}
 </script>
 
 <style scoped>

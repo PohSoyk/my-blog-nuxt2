@@ -25,10 +25,10 @@ export default {
   },
   methods: {
     hasCategory(category) {
-      return Object.keys(category).length > 0;
+      return Object.keys(category).length > 0
     },
   },
-};
+}
 </script>
 
 <style scoped>

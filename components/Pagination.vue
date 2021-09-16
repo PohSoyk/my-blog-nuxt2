@@ -64,10 +64,10 @@ export default {
     getPath(p) {
       return `/${
         this.category !== undefined ? `category/${this.category.id}/` : ''
-      }page/${p}`;
+      }page/${p}`
     },
   },
-};
+}
 </script>
 
 <style scoped>

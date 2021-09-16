@@ -35,7 +35,7 @@ export default {
       default: () => ({}),
     },
   },
-};
+}
 </script>
 
 <style scoped>

@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from 'axios'
 
 export default {
   async asyncData({ payload, $config }) {
@@ -50,7 +50,7 @@ export default {
                 headers: { 'X-API-KEY': $config.apiKey },
               }
             )
-          ).data.articles;
+          ).data.articles
     const banner =
       payload !== undefined
         ? payload.banner
@@ -61,7 +61,7 @@ export default {
                 headers: { 'X-API-KEY': $config.apiKey },
               }
             )
-          ).data;
+          ).data
     const {
       data: { contents },
     } = await axios.get(
@@ -69,47 +69,47 @@ export default {
       {
         headers: { 'X-API-KEY': $config.apiKey },
       }
-    );
+    )
     const categories = await axios.get(
       `https://${$config.serviceId}.microcms.io/api/v1/categories?limit=100`,
       {
         headers: { 'X-API-KEY': $config.apiKey },
       }
-    );
+    )
     return {
       popularArticles,
       banner,
       categories: categories.data.contents,
       contents,
-    };
+    }
   },
   data() {
     return {
       categories: this.categories || [],
       contents: this.contents || [],
       headerHiddenFlag: false,
-    };
+    }
   },
   mounted() {
-    this.params = location.search || '';
-    let startPos = 0;
-    let timeout = {};
+    this.params = location.search || ''
+    let startPos = 0
+    let timeout = {}
     window.addEventListener('scroll', () => {
       const currentPos =
-        window.pageYOffset || document.documentElement.scrollTop;
-      clearTimeout(timeout);
-      this.headerHiddenFlag = currentPos - startPos > 1;
+        window.pageYOffset || document.documentElement.scrollTop
+      clearTimeout(timeout)
+      this.headerHiddenFlag = currentPos - startPos > 1
       timeout = setTimeout(() => {
-        startPos = currentPos;
-      }, 100);
-    });
+        startPos = currentPos
+      }, 100)
+    })
   },
   head() {
     return {
       title: 'お問い合わせ',
-    };
+    }
   },
-};
+}
 </script>
 
 <style scoped>

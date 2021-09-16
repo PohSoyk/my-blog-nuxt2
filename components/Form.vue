@@ -106,8 +106,8 @@
 </template>
 
 <script>
-import axios from 'axios';
-import { ValidationObserver, ValidationProvider } from 'vee-validate';
+import axios from 'axios'
+import { ValidationObserver, ValidationProvider } from 'vee-validate'
 
 export default {
   components: {
@@ -127,31 +127,31 @@ export default {
 
   methods: {
     onSubmit() {
-      this.loading = true;
-      const params = new URLSearchParams();
-      params.append('form-name', 'contact');
-      params.append('name', this.name);
-      params.append('email', this.email);
-      params.append('message', this.message);
+      this.loading = true
+      const params = new URLSearchParams()
+      params.append('form-name', 'contact')
+      params.append('name', this.name)
+      params.append('email', this.email)
+      params.append('message', this.message)
       if (this.botField) {
-        params.append('bot-field', this.botField);
+        params.append('bot-field', this.botField)
       }
       axios
         .post('/', params)
         .then(() => {
-          this.snackbarText = 'お問い合わせを送信しました！';
-          this.snackbar = true;
-          this.loading = false;
-          this.name = this.email = this.message = '';
-          this.$refs.obs.reset();
+          this.snackbarText = 'お問い合わせを送信しました！'
+          this.snackbar = true
+          this.loading = false
+          this.name = this.email = this.message = ''
+          this.$refs.obs.reset()
         })
         .catch(() => {
-          this.snackbarText = 'お問い合わせの送信が失敗しました';
-          this.snackbarError = true;
-        });
+          this.snackbarText = 'お問い合わせの送信が失敗しました'
+          this.snackbarError = true
+        })
     },
   },
-};
+}
 </script>
 
 <style>

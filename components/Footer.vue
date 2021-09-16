@@ -19,13 +19,13 @@ export default {
       copy: '&copy;',
       now: '',
       copyright: "PoSo's Note.",
-    };
+    }
   },
   created() {
-    const d = new Date();
-    this.now = d.getFullYear();
+    const d = new Date()
+    this.now = d.getFullYear()
   },
-};
+}
 </script>
 
 <style scoped>

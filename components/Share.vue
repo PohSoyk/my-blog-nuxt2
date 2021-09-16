@@ -52,22 +52,22 @@ export default {
   data() {
     return {
       stickyChangeFlag: false,
-    };
+    }
   },
   computed: {
     twitterLink() {
       return `https://twitter.com/intent/tweet?text=${encodeURIComponent(
         this.title
-      )}&url=https://posonote.com/${this.id}/&hashtags=posonote`;
+      )}&url=https://posonote.com/${this.id}/&hashtags=posonote`
     },
     facebookLink() {
-      return `https://www.facebook.com/sharer.php?u=https://posonote.com/${this.id}/`;
+      return `https://www.facebook.com/sharer.php?u=https://posonote.com/${this.id}/`
     },
     hatenaLink() {
-      return `https://b.hatena.ne.jp/entry/https://posonote.com/${this.id}/`;
+      return `https://b.hatena.ne.jp/entry/https://posonote.com/${this.id}/`
     },
   },
-};
+}
 </script>
 
 <style scoped>

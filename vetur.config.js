@@ -37,4 +37,4 @@ module.exports = {
       globalComponents: ['./assets/components/*.vue'],
     },
   ],
-};
+}

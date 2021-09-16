@@ -44,7 +44,7 @@ export default {
       default: undefined,
     },
   },
-};
+}
 </script>
 
 <style scoped>

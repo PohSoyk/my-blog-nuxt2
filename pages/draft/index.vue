@@ -60,7 +60,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from 'axios'
 
 export default {
   async asyncData({ $config }) {
@@ -69,7 +69,7 @@ export default {
       {
         headers: { 'X-API-KEY': $config.apiKey },
       }
-    );
+    )
     const banner = (
       await axios.get(
         `https://${$config.serviceId}.microcms.io/api/v1/banner`,
@@ -77,7 +77,7 @@ export default {
           headers: { 'X-API-KEY': $config.apiKey },
         }
       )
-    ).data;
+    ).data
     const {
       data: { contents },
     } = await axios.get(
@@ -85,12 +85,12 @@ export default {
       {
         headers: { 'X-API-KEY': $config.apiKey },
       }
-    );
+    )
     return {
       categories: categories.data.contents,
       banner,
       contents,
-    };
+    }
   },
   data() {
     return {
@@ -132,47 +132,47 @@ export default {
       contents: [],
       categories: [],
       headerHiddenFlag: false,
-    };
+    }
   },
   async created() {
-    const query = this.$route.query;
+    const query = this.$route.query
     if (query.id === undefined || query.draftKey === undefined) {
-      return;
+      return
     }
     const { data, error } = await axios
       .get(
         `/.netlify/functions/draft?id=${query.id}&draftKey=${query.draftKey}`
       )
-      .catch((error) => ({ error }));
+      .catch((error) => ({ error }))
     if (error) {
-      return;
+      return
     }
-    this.data = data;
+    this.data = data
     this.data.intro =
       data.introduction !== undefined
         ? this.$parser(data.introduction).html
-        : '';
-    this.toc = this.$parser(data.body).toc;
-    this.data.body = this.$parser(data.body).html;
+        : ''
+    this.toc = this.$parser(data.body).toc
+    this.data.body = this.$parser(data.body).html
   },
   mounted() {
-    let startPos = 0;
-    let timeout = {};
+    let startPos = 0
+    let timeout = {}
     window.addEventListener('scroll', () => {
       const currentPos =
-        window.pageYOffset || document.documentElement.scrollTop;
-      clearTimeout(timeout);
-      this.headerHiddenFlag = currentPos - startPos > 1;
+        window.pageYOffset || document.documentElement.scrollTop
+      clearTimeout(timeout)
+      this.headerHiddenFlag = currentPos - startPos > 1
       timeout = setTimeout(() => {
-        startPos = currentPos;
-      }, 100);
+        startPos = currentPos
+      }, 100)
       if (window.iframely) {
-        window.iframely.load();
+        window.iframely.load()
       }
       if (window.twttr) {
-        window.twttr.widgets.load();
+        window.twttr.widgets.load()
       }
-    });
+    })
   },
   head() {
     return {
@@ -204,9 +204,9 @@ export default {
           content: this.data && this.data.ogimage && this.data.ogimage.url,
         },
       ],
-    };
+    }
   },
-};
+}
 </script>
 
 <style scoped>

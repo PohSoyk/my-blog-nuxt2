@@ -15,20 +15,20 @@ export default {
   data() {
     return {
       searchable: false,
-    };
+    }
   },
   methods: {
     setSearchable() {
-      this.searchable = true;
+      this.searchable = true
     },
     search(e) {
       if (!e.target.value.trim() || !this.searchable) {
-        return;
+        return
       }
-      this.$router.push({ path: '/search', query: { q: e.target.value } });
+      this.$router.push({ path: '/search', query: { q: e.target.value } })
     },
   },
-};
+}
 </script>
 
 <style scoped>

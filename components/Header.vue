@@ -41,20 +41,20 @@ export default {
     return {
       params: this.params || '',
       open: false,
-    };
+    }
   },
   mounted() {
-    this.params = location.search || '';
+    this.params = location.search || ''
   },
   methods: {
     setOpen(value) {
-      this.open = value;
+      this.open = value
     },
     toggleOpen() {
-      this.open = !this.open;
+      this.open = !this.open
     },
   },
-};
+}
 </script>
 
 <style scoped>
