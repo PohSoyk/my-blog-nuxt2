@@ -68,6 +68,8 @@ export default {
         border-radius: 3px;
         margin: 0 2px;
         padding: 2px 4px;
+        font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo,
+          Courier, monospace !important;
       }
     }
 
@@ -133,6 +135,8 @@ export default {
       & > code {
         padding: 10px 20px;
         border-radius: 5px;
+        font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo,
+          Courier, monospace;
       }
     }
     & >>> .frame {
@@ -277,6 +281,8 @@ export default {
       & > code {
         padding: 8px 16px;
         border-radius: 3px;
+        font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo,
+          Courier, monospace;
       }
     }
     & >>> .frame {
