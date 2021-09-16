@@ -47,6 +47,7 @@
               :updated-at="updatedAt"
               :category="category"
             />
+            <Intro :intro="intro" />
             <Toc :id="id" :toc="toc" :visible="toc_visible" />
             <Post :body="body" />
             <Writer v-if="writer" :writer="writer" />
@@ -72,11 +73,9 @@
 
 <script>
 import axios from 'axios';
-import cheerio from 'cheerio';
-import hljs from 'highlight.js';
 
 export default {
-  async asyncData({ params, payload, $config }) {
+  async asyncData({ params, payload, $config, app }) {
     const data =
       payload !== undefined
         ? payload.content
@@ -124,53 +123,19 @@ export default {
         headers: { 'X-API-KEY': $config.apiKey },
       }
     );
-    // bodyのfieldIdを判定しframe用の場合HTMLに変換する
-    const body = data.body.reduce((result, current) => {
-      // fieldIdがframeか
-      if (current.fieldId === 'frame') {
-        // ある時（下記、初期データを操作）
-        result.push({
-          fieldId: current.fieldId,
-          text: `<div class="frame"><div class="frameTitle" style="background-color: ${current.color};">${current.title}</div><div class="frameContent" style="border-color: ${current.color};">${current.list}</div></div>`,
-        });
-      } else {
-        // 無いとき（新規に初期データを作成）
-        result.push({
-          fieldId: current.fieldId,
-          text: current.text,
-        });
-      }
-      return result;
-    }, []); // 初期値は[]
-    let text = '';
-    body.forEach((data) => {
-      text += data.text;
-    });
-    const $ = cheerio.load(text);
-    const headings = $('h1, h2, h3').toArray();
-    const toc = headings.map((d) => {
-      return {
-        text: d.children[0].data,
-        id: d.attribs.id,
-        name: d.name,
-      };
-    });
-    $('pre code').each((_, elm) => {
-      const res = hljs.highlightAuto($(elm).text());
-      $(elm).html(res.value);
-      $(elm).addClass('hljs');
-    });
-    $('img').each((_, elm) => {
-      $(elm).attr('class', 'lazyload');
-      $(elm).attr('data-src', elm.attribs.src);
-      $(elm).removeAttr('src');
-    });
+    const intro =
+      data.introduction !== undefined
+        ? app.$parser(data.introduction).html
+        : '';
+    const body = app.$parser(data.body).html;
+    const toc = app.$parser(data.body).toc;
 
     return {
       ...data,
       popularArticles,
       banner,
-      body: $.html(),
+      intro,
+      body,
       toc,
       categories: categories.data.contents,
       contents,

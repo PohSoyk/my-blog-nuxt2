@@ -33,6 +33,7 @@
               :updated-at="data.updatedAt"
               :category="data.category"
             />
+            <Intro :intro="data.intro" />
             <Toc :id="data.id" :toc="toc" :visible="data.toc_visible" />
             <Post :body="data.body" />
             <Writer v-if="data.writer" :writer="data.writer" />
@@ -60,8 +61,6 @@
 
 <script>
 import axios from 'axios';
-import cheerio from 'cheerio';
-import hljs from 'highlight.js';
 
 export default {
   async asyncData({ $config }) {
@@ -100,6 +99,7 @@ export default {
         ogimage: {
           url: '',
         },
+        intro: '',
         body: '',
         title: '',
         createdAt: '',
@@ -148,44 +148,12 @@ export default {
       return;
     }
     this.data = data;
-    // bodyのfieldIdを判定しframe用の場合HTMLに変換する
-    const body = data.body.reduce((result, current) => {
-      // fieldIdがframeか
-      if (current.fieldId === 'frame') {
-        // ある時（下記、初期データを操作）
-        result.push({
-          fieldId: current.fieldId,
-          text: `<div class="frame"><div class="frameTitle" style="background-color: ${current.color};">${current.title}</div><div class="frameContent" style="border-color: ${current.color};">${current.list}</div></div>`,
-        });
-      } else {
-        // 無いとき（新規に初期データを作成）
-        result.push({
-          fieldId: current.fieldId,
-          text: current.text,
-        });
-      }
-      return result;
-    }, []); // 初期値は[]
-    let text = '';
-    body.forEach((data) => {
-      text += data.text;
-    });
-    const $ = cheerio.load(text);
-    const headings = $('h1, h2, h3').toArray();
-    const toc = headings.map((d) => {
-      return {
-        text: d.children[0].data,
-        id: d.attribs.id,
-        name: d.name,
-      };
-    });
-    this.toc = toc;
-    $('pre code').each((_, elm) => {
-      const res = hljs.highlightAuto($(elm).text());
-      $(elm).html(res.value);
-      $(elm).addClass('hljs');
-    });
-    this.data.body = $.html();
+    this.data.intro =
+      data.introduction !== undefined
+        ? this.$parser(data.introduction).html
+        : '';
+    this.toc = this.$parser(data.body).toc;
+    this.data.body = this.$parser(data.body).html;
   },
   mounted() {
     let startPos = 0;
@@ -234,20 +202,6 @@ export default {
           hid: 'og:image',
           property: 'og:image',
           content: this.data && this.data.ogimage && this.data.ogimage.url,
-        },
-      ],
-      link: [
-        {
-          rel: 'stylesheet',
-          href:
-            'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css',
-        },
-      ],
-      script: [
-        {
-          src:
-            'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js',
-          async: true,
         },
       ],
     };

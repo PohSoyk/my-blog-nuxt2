@@ -102,7 +102,11 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~/plugins/vue-scrollto', '~/plugins/vee-validate'],
+  plugins: [
+    '~/plugins/vue-scrollto',
+    '~/plugins/vee-validate',
+    '~/plugins/parser',
+  ],
   components: true,
   buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/pwa', '@nuxtjs/vuetify'],
   /*
