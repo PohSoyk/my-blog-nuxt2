@@ -44,7 +44,7 @@
             <h1 class="title">{{ title }}</h1>
             <Meta
               :created-at="publishedAt || createdAt"
-              :updated-at="updatedAt"
+              :updated-at="revisedAt || updatedAt"
               :category="category"
             />
             <Intro :intro="intro" />
