@@ -36,10 +36,17 @@
 
 <script>
 import axios from 'axios'
-import cheerio from 'cheerio'
 
 export default {
-  async asyncData({ payload, $config }) {
+  async asyncData({ payload, $config, app }) {
+    const data = (
+      await axios.get(
+        `https://${$config.serviceId}.microcms.io/api/v1/policy`,
+        {
+          headers: { 'X-API-KEY': $config.apiKey },
+        }
+      )
+    ).data
     const popularArticles =
       payload !== undefined && payload.popularArticles !== undefined
         ? payload.popularArticles
@@ -76,34 +83,20 @@ export default {
         headers: { 'X-API-KEY': $config.apiKey },
       }
     )
-    const policy = await axios.get(
-      `https://${$config.serviceId}.microcms.io/api/v1/policy`,
-      {
-        headers: { 'X-API-KEY': $config.apiKey },
-      }
-    )
-    const $ = cheerio.load(policy.data.body)
-    const headings = $('h1, h2, h3').toArray()
-    const toc = headings.map((d) => {
-      return {
-        text: d.children[0].data,
-        id: d.attribs.id,
-        name: d.name,
-      }
-    })
+    const body = app.$parser(data.body).html
+    const toc = app.$parser(data.body).toc
     return {
-      body: $.html(),
+      ...data,
+      body,
       toc,
       popularArticles,
       banner,
       categories: categories.data.contents,
-      toc_visible: policy.data.toc_visible,
       contents,
     }
   },
   data() {
     return {
-      categories: this.categories || [],
       headerHiddenFlag: false,
     }
   },

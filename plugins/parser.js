@@ -1,27 +1,28 @@
 import cheerio from 'cheerio'
 import hljs from 'highlight.js'
-/* eslint-disable */
+
 export default ({ app }, inject) => {
-  inject('parser', (textArray) => {
-    const body = textArray.reduce((result, current) => {
-      // fieldIdがframeか
-      if (current.fieldId === 'frame') {
-        // frameの時（下記、初期データを操作）
-        result.push({
-          fieldId: current.fieldId,
-          text: `<div class="frame"><div class="frameTitle" style="background-color: ${current.color};">${current.title}</div><div class="frameContent" style="border-color: ${current.color};">${current.list}</div></div>`,
-        })
-      } else {
-        // frameでは無いとき（初期データを返す）
-        result.push({
-          fieldId: current.fieldId,
-          text: current.text,
-        })
-      }
-      return result
-    }, []) // 初期値は[]
-    const text = body.map((d) => d.text).join('')
-    const $ = cheerio.load(text)
+  inject('parser', (document) => {
+    const bodyText = Array.isArray(document)
+      ? document
+          .reduce((result, current) => {
+            if (current.fieldId === 'frame') {
+              result.push({
+                fieldId: current.fieldId,
+                text: `<div class="frame"><div class="frameTitle" style="background-color: ${current.color};">${current.title}</div><div class="frameContent" style="border-color: ${current.color};">${current.list}</div></div>`,
+              })
+            } else {
+              result.push({
+                fieldId: current.fieldId,
+                text: current.text,
+              })
+            }
+            return result
+          }, [])
+          .map((d) => d.text)
+          .join('')
+      : document
+    const $ = cheerio.load(bodyText)
     const headings = $('h1, h2, h3').toArray()
     const toc = headings.map((d) => {
       return {
@@ -45,5 +46,4 @@ export default ({ app }, inject) => {
       toc,
     }
   })
-  // inject('hello', (msg) => console.log(`Hello ${msg}!`));
 }
