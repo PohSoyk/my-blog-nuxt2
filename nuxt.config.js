@@ -1,16 +1,7 @@
-import axios from 'axios'
-require('dotenv').config()
-const { API_KEY, SERVICE_ID, GA_ID } = process.env
+import { client } from './utils/microcms'
+const { API_KEY, GA_ID } = process.env
 
 export default {
-  publicRuntimeConfig: {
-    apiKey: process.env.NODE_ENV !== 'production' ? API_KEY : undefined,
-    serviceId: process.env.NODE_ENV !== 'production' ? SERVICE_ID : undefined,
-  },
-  privateRuntimeConfig: {
-    apiKey: API_KEY,
-    serviceId: SERVICE_ID,
-  },
   target: 'static',
   /*
    ** Headers of the page
@@ -114,16 +105,19 @@ export default {
    */
   modules: [
     ['@nuxtjs/dayjs'],
-    [
-      '@nuxtjs/google-analytics',
-      {
-        id: GA_ID,
-      },
-    ],
+    GA_ID
+      ? [
+          '@nuxtjs/google-analytics',
+          {
+            id: GA_ID,
+          },
+        ]
+      : undefined,
     ['@nuxtjs/sitemap'],
     '@nuxtjs/feed',
     '@nuxtjs/proxy',
-  ],
+    'nuxt-microcms-module',
+  ].filter((v) => v),
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     treeShake: true,
@@ -166,6 +160,13 @@ export default {
         },
       ],
     },
+  },
+  microcms: {
+    options: {
+      serviceDomain: 'cloneblog',
+      apiKey: API_KEY,
+    },
+    mode: process.env.NODE_ENV === 'production' ? 'server' : 'all',
   },
   /*
    ** Build configuration
@@ -218,37 +219,33 @@ export default {
       const range = (start, end) =>
         [...Array(end - start + 1)].map((_, i) => start + i)
       const limit = 50
-      const popularArticles = await axios
-        .get(`https://${SERVICE_ID}.microcms.io/api/v1/popular-articles`, {
-          headers: { 'X-API-KEY': API_KEY },
+      const popularArticles = (
+        await client.get({
+          endpoint: 'popular-articles',
         })
-        .then(({ data }) => {
-          return data.articles
-        })
-      const banner = await axios
-        .get(`https://${SERVICE_ID}.microcms.io/api/v1/banner`, {
-          headers: { 'X-API-KEY': API_KEY },
-        })
-        .then(({ data }) => {
-          return data
-        })
+      ).articles
+      const banner = await client.get({
+        endpoint: 'banner',
+      })
 
       // 詳細ページ
       const getArticles = (offset = 0) => {
-        return axios
-          .get(
-            `https://${SERVICE_ID}.microcms.io/api/v1/blog?offset=${offset}&limit=${limit}&depth=2`,
-            {
-              headers: { 'X-API-KEY': API_KEY },
-            }
-          )
+        return client
+          .get({
+            endpoint: 'blog',
+            queries: {
+              offset,
+              limit,
+              depth: 2,
+            },
+          })
           .then(async (res) => {
             let articles = []
-            if (res.data.totalCount > offset + limit) {
+            if (res.totalCount > offset + limit) {
               articles = await getArticles(offset + limit)
             }
             return [
-              ...res.data.contents.map((content) => ({
+              ...res.contents.map((content) => ({
                 route: `/${content.id}`,
                 payload: { content, popularArticles, banner },
               })),
@@ -265,15 +262,15 @@ export default {
       }
 
       // 一覧のページング
-      const pages = await axios
-        .get(
-          `https://${SERVICE_ID}.microcms.io/api/v1/blog?limit=1&fields=id`,
-          {
-            headers: { 'X-API-KEY': API_KEY },
-          }
-        )
+      const pages = await client
+        .get({
+          endpoint: 'blog',
+          queries: {
+            limit: 0,
+          },
+        })
         .then((res) =>
-          range(1, Math.ceil(res.data.totalCount / 10)).map((p) => ({
+          range(1, Math.ceil(res.totalCount / 10)).map((p) => ({
             route: `/page/${p}`,
             payload: { popularArticles, banner },
           }))
@@ -296,7 +293,6 @@ export default {
         route: '/policy',
         payload: { popularArticles, banner },
       }
-
       // プロフィールページ
       const profile = {
         route: '/profile',
@@ -309,28 +305,30 @@ export default {
         payload: { popularArticles, banner },
       }
 
-      const categories = await axios
-        .get(`https://${SERVICE_ID}.microcms.io/api/v1/categories?fields=id`, {
-          headers: { 'X-API-KEY': API_KEY },
+      const categories = await client
+        .get({
+          endpoint: 'categories',
+          queries: {
+            fields: 'id',
+          },
         })
-        .then(({ data }) => {
-          return data.contents.map((content) => content.id)
+        .then(({ contents }) => {
+          return contents.map((content) => content.id)
         })
 
       // カテゴリーページ
       const categoryPages = await Promise.all(
         categories.map((category) =>
-          axios
-            .get(
-              `https://${SERVICE_ID}.microcms.io/api/v1/blog?limit=1&fields=id&filters=category[equals]${category}`,
-              {
-                headers: {
-                  'X-API-KEY': API_KEY,
-                },
-              }
-            )
+          client
+            .get({
+              endpoint: 'blog',
+              queries: {
+                limit: 0,
+                filters: `category[equals]${category}`,
+              },
+            })
             .then((res) => {
-              return range(1, Math.ceil(res.data.totalCount / 10)).map((p) => ({
+              return range(1, Math.ceil(res.totalCount / 10)).map((p) => ({
                 route: `/category/${category}/page/${p}`,
                 payload: { popularArticles, banner },
               }))
@@ -370,11 +368,11 @@ export default {
             '未経験からエンジニア転職を成功させた筆者が、IT技術、プログラミング、アプリ開発の情報を中心に発信中。人生で得たスキルや知識のアウトプットを行うブログです。',
         }
 
-        const posts = await axios
-          .get(`https://${SERVICE_ID}.microcms.io/api/v1/blog`, {
-            headers: { 'X-API-KEY': API_KEY },
+        const posts = await client
+          .get({
+            endpoint: 'blog',
           })
-          .then((res) => res.data.contents)
+          .then((res) => res.contents)
 
         posts.forEach((post) => {
           feed.addItem({
@@ -401,14 +399,14 @@ export default {
     //         'microCMSはAPIベースの日本製ヘッドレスCMSです。本ブログはmicroCMSの開発メンバーがmicroCMSの使い方や技術的な内容を発信するブログです。',
     //     };
 
-    //     const posts = await axios
-    //       .get(
-    //         `https://${SERVICE_ID}.microcms.io/api/v1/blog?filters=category[equals]update`,
-    //         {
-    //           headers: { 'X-API-KEY': API_KEY },
-    //         }
-    //       )
-    //       .then((res) => res.data.contents);
+    // const posts = await client
+    // .get({
+    //   endpoint: 'blog',
+    //   queries: {
+    //     filters: 'category[equals]update',
+    //   },
+    // })
+    // .then((res) => res.contents);
 
     //     posts.forEach((post) => {
     //       feed.addItem({
@@ -435,14 +433,14 @@ export default {
     //         'microCMSはAPIベースの日本製ヘッドレスCMSです。本ブログはmicroCMSの開発メンバーがmicroCMSの使い方や技術的な内容を発信するブログです。',
     //     };
 
-    //     const posts = await axios
-    //       .get(
-    //         `https://${SERVICE_ID}.microcms.io/api/v1/blog?filters=category[equals]usecase`,
-    //         {
-    //           headers: { 'X-API-KEY': API_KEY },
-    //         }
-    //       )
-    //       .then((res) => res.data.contents);
+    // const posts = await client
+    //       .get({
+    //         endpoint: 'blog',
+    //         queries: {
+    //           filters: 'category[equals]usecase',
+    //         },
+    //       })
+    //       .then((res) => res.contents);
 
     //     posts.forEach((post) => {
     //       feed.addItem({

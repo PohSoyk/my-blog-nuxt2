@@ -35,54 +35,34 @@
 </template>
 
 <script>
-import axios from 'axios'
-
 export default {
-  async asyncData({ payload, $config, app }) {
-    const data = (
-      await axios.get(
-        `https://${$config.serviceId}.microcms.io/api/v1/policy`,
-        {
-          headers: { 'X-API-KEY': $config.apiKey },
-        }
-      )
-    ).data
+  async asyncData({ payload, $microcms, app }) {
+    const data = await $microcms.get({
+      endpoint: 'policy',
+    })
     const popularArticles =
       payload !== undefined && payload.popularArticles !== undefined
         ? payload.popularArticles
         : (
-            await axios.get(
-              `https://${$config.serviceId}.microcms.io/api/v1/popular-articles`,
-              {
-                headers: { 'X-API-KEY': $config.apiKey },
-              }
-            )
-          ).data.articles
+            await $microcms.get({
+              endpoint: 'popular-articles',
+            })
+          ).articles
     const banner =
       payload !== undefined
         ? payload.banner
-        : (
-            await axios.get(
-              `https://${$config.serviceId}.microcms.io/api/v1/banner`,
-              {
-                headers: { 'X-API-KEY': $config.apiKey },
-              }
-            )
-          ).data
-    const {
-      data: { contents },
-    } = await axios.get(
-      `https://${$config.serviceId}.microcms.io/api/v1/blog`,
-      {
-        headers: { 'X-API-KEY': $config.apiKey },
-      }
-    )
-    const categories = await axios.get(
-      `https://${$config.serviceId}.microcms.io/api/v1/categories?limit=100`,
-      {
-        headers: { 'X-API-KEY': $config.apiKey },
-      }
-    )
+        : await $microcms.get({
+            endpoint: 'banner',
+          })
+    const { contents } = await $microcms.get({
+      endpoint: 'blog',
+    })
+    const categories = await $microcms.get({
+      endpoint: 'categories',
+      queries: {
+        limit: 100,
+      },
+    })
     const body = app.$parser(data.body).html
     const toc = app.$parser(data.body).toc
     return {
@@ -91,7 +71,7 @@ export default {
       toc,
       popularArticles,
       banner,
-      categories: categories.data.contents,
+      categories: categories.contents,
       contents,
     }
   },
