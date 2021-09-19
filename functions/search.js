@@ -11,7 +11,7 @@ exports.handler = async (event) => {
       }),
     }
   }
-  client
+  return client
     .get({
       endpoint: 'blog',
       queries: { q },
