@@ -9,20 +9,24 @@
       <button class="menuBtn" @click="toggleOpen()">
         <img src="/images/icon_menu.svg" alt="menu" />
       </button>
-      <div v-if="open" class="mask" @click="setOpen(false)"></div>
-      <div class="menu" :class="{ isOpen: open }">
-        <ul class="lists">
-          <li class="list">
-            <nuxt-link to="/profile">プロフィール</nuxt-link>
-          </li>
-          <li class="list">
-            <nuxt-link to="/portfolio">ポートフォリオ</nuxt-link>
-          </li>
-          <li class="list">
-            <nuxt-link to="/contact">お問い合わせ</nuxt-link>
-          </li>
-        </ul>
-      </div>
+      <transition name="mask">
+        <div v-if="open" class="mask" @click="setOpen(false)"></div>
+      </transition>
+      <transition name="menu">
+        <div v-if="open" class="menu">
+          <ul class="lists">
+            <li class="list">
+              <nuxt-link to="/profile">プロフィール</nuxt-link>
+            </li>
+            <li class="list">
+              <nuxt-link to="/portfolio">ポートフォリオ</nuxt-link>
+            </li>
+            <li class="list">
+              <nuxt-link to="/contact">お問い合わせ</nuxt-link>
+            </li>
+          </ul>
+        </div>
+      </transition>
     </header>
     <div class="empty"></div>
   </div>
@@ -59,10 +63,6 @@ export default {
 
 <style scoped>
 @media (min-width: 800px) {
-  .is-hidden {
-    transform: translateY(-73px);
-  }
-
   .header {
     position: fixed;
     top: 0;
@@ -76,7 +76,6 @@ export default {
     z-index: 10;
     border-bottom: 1px solid var(--color-border);
     background-color: #fff;
-    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .empty {
@@ -153,10 +152,6 @@ export default {
 }
 
 @media (max-width: 800px) {
-  .is-hidden {
-    transform: translateY(-64px);
-  }
-
   .header {
     position: fixed;
     top: 0;
@@ -169,7 +164,6 @@ export default {
     padding: 16px;
     z-index: 10;
     border-bottom: 1px solid var(--color-border);
-    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .empty {
@@ -193,27 +187,37 @@ export default {
     cursor: pointer;
   }
 
-  @keyframes headerShow {
-    from {
+  @keyframes mask {
+    0% {
       opacity: 0;
-      transform: translateY(-10px);
     }
 
-    to {
+    100% {
+      opacity: 1;
+    }
+  }
+  .mask-enter-active {
+    animation: mask 0.3s;
+  }
+  .mask-leave-active {
+    animation: mask 0.1s linear reverse;
+  }
+  @keyframes menu {
+    0% {
+      opacity: 0;
+      transform: translateY(-5px);
+    }
+
+    100% {
       opacity: 1;
       transform: translateY(0px);
     }
   }
-  @keyframes headerHidden {
-    from {
-      opacity: 1;
-      transform: translateY(0px);
-    }
-
-    to {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
+  .menu-enter-active {
+    animation: menu 0.3s;
+  }
+  .menu-leave-active {
+    animation: menu 0.1s linear reverse;
   }
 
   .menu {
@@ -227,12 +231,7 @@ export default {
     border-bottom: 1px solid var(--color-border);
     z-index: 2001;
     padding-top: 8px;
-    animation: headerHidden 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-
-    &.isOpen {
-      animation: headerShow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-      display: flex;
-    }
+    display: flex;
   }
 
   .lists {
