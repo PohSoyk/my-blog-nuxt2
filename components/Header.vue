@@ -13,7 +13,7 @@
         <div v-if="open" class="mask" @click="setOpen(false)"></div>
       </transition>
       <transition name="menu">
-        <div v-if="open" class="menu">
+        <div v-if="open" class="menu isMobile">
           <ul class="lists">
             <li class="list">
               <nuxt-link to="/profile">プロフィール</nuxt-link>
@@ -27,6 +27,20 @@
           </ul>
         </div>
       </transition>
+
+      <div class="menu isDesktop">
+        <ul class="lists">
+          <li class="list">
+            <nuxt-link to="/profile">プロフィール</nuxt-link>
+          </li>
+          <li class="list">
+            <nuxt-link to="/portfolio">ポートフォリオ</nuxt-link>
+          </li>
+          <li class="list">
+            <nuxt-link to="/contact">お問い合わせ</nuxt-link>
+          </li>
+        </ul>
+      </div>
     </header>
     <div class="empty"></div>
   </div>
@@ -45,10 +59,12 @@ export default {
     return {
       params: this.params || '',
       open: false,
+      // width: window.innerWidth,
     }
   },
   mounted() {
     this.params = location.search || ''
+    // window.addEventListener('resize', this.isOpen)
   },
   methods: {
     setOpen(value) {
@@ -57,12 +73,19 @@ export default {
     toggleOpen() {
       this.open = !this.open
     },
+    // isOpen() {
+    //   this.open
+    // }
   },
 }
 </script>
 
 <style scoped>
 @media (min-width: 800px) {
+  .is-hidden {
+    transform: translateY(-73px);
+  }
+
   .header {
     position: fixed;
     top: 0;
@@ -76,6 +99,7 @@ export default {
     z-index: 10;
     border-bottom: 1px solid var(--color-border);
     background-color: #fff;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .empty {
@@ -104,6 +128,14 @@ export default {
   .menu {
     display: flex;
     padding: 12px 0;
+
+    &.isMobile {
+      display: none;
+    }
+
+    &.isDesktop {
+      display: flex;
+    }
   }
 
   .lists {
@@ -152,6 +184,9 @@ export default {
 }
 
 @media (max-width: 800px) {
+  .is-hidden {
+    transform: translateY(-64px);
+  }
   .header {
     position: fixed;
     top: 0;
@@ -164,6 +199,7 @@ export default {
     padding: 16px;
     z-index: 10;
     border-bottom: 1px solid var(--color-border);
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .empty {
@@ -231,7 +267,14 @@ export default {
     border-bottom: 1px solid var(--color-border);
     z-index: 2001;
     padding-top: 8px;
-    display: flex;
+
+    &.isMobile {
+      display: block;
+    }
+
+    &.isDesktop {
+      display: none;
+    }
   }
 
   .lists {
