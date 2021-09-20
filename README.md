@@ -15,7 +15,7 @@ github: https://github.com/wantainc/microcms-blog
 - パンくずリスト
 - 記事詳細
   - 目次
-  - **リッチテキスト・HTML同時入稿** *←Changes*
+  - **リッチテキスト・囲み枠・HTML同時入稿** *←Changes*
   - 著者
   - SNSシェアボタン
   - 下書きプレビュー
@@ -45,8 +45,9 @@ type: リスト形式
 | ------------- | ------------- | ----- |
 | title | タイトル | テキストフィールド |
 | category | カテゴリー | コンテンツ参照 - カテゴリー |
+| introduction | 前置き文 | 繰り返し -3件のフィールド[1](#1-カスタムフィールド-Changes) | *←Changes*
 | toc_visible | 目次 | 真偽値 |
-| body | 本文 | 繰り返し -2件のフィールド[1](#1-カスタムフィールド-Changes) |
+| body | 本文 | 繰り返し -3件のフィールド[1](#1-カスタムフィールド-Changes) | *←Changes*
 | description | 概要 | テキストフィールド |
 | ogimage | OGP画像 | 画像 |
 | writer | 著者 | コンテンツ参照 - 著者 |
@@ -60,6 +61,15 @@ type: リスト形式
 | フィールドID | 表示名 | 種類 |
 | ------------- | ------------- | ----- |
 | text | リッチエディタ | リッチエディタ |
+
+カスタムフィールド名: 色付き囲み枠  
+カスタムフィールドID: frame
+
+| フィールドID | 表示名 | 種類 |
+| ------------- | ------------- | ----- |
+| color | 色 | セレクトフィールド |
+| title | 枠のタイトル | テキストフィールド |
+| list | 枠のリスト | リッチエディタ |
 
 カスタムフィールド名: HTML  
 カスタムフィールドID: html
@@ -123,10 +133,8 @@ type: オブジェクト形式
 - SERVICE_ID（microCMSのサービスID）
 - GA_ID（Google AnalyticsのID）  
 ***↓Changes***
-- OAUTH_USER (gmailアドレス)
-- OAUTH_CLIENT_ID (gmailのOAuth 2.0 クライアントID)
-- OAUTH_CLIENT_SECRET (gmailのOAuth 2.0 クライアントシークレット)
-- OAUTH_REFRESH_TOKEN (gmailのOAuth 2.0 リフレッシュトークン)
+- USER (メールアドレス)
+- PASSWORD (メールアドレスのパスワード)
 
 例:
 ```
@@ -134,10 +142,8 @@ API_KEY=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 SERVICE_ID=your-service-id
 GA_ID=UA-xxxxxxxxx-x
   ↓Changes
-OAUTH_USER=ユーザ名@gmail.com
-OAUTH_CLIENT_ID=クライアントID
-OAUTH_CLIENT_SECRET=クライアントシークレット
-OAUTH_REFRESH_TOKEN=リフレッシュトークン
+USER=ユーザ名@ドメイン名
+PASSWORD=パスワード
 ```
 
 ## 開発方法

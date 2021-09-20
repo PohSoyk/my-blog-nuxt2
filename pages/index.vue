@@ -28,7 +28,7 @@
                 <dd>
                   <Meta
                     :created-at="content.publishedAt || content.createdAt"
-                    :updated-at="content.updatedAt"
+                    :updated-at="content.revisedAt || content.updatedAt"
                     :category="content.category"
                   />
                   <span class="description">{{ content.description }}</span>
