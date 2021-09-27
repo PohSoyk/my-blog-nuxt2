@@ -165,6 +165,9 @@ export default {
         top: 1px;
       }
     }
+    & >>> iframe {
+      width: 100%;
+    }
   }
 }
 @media (max-width: 600px) {
@@ -310,6 +313,9 @@ export default {
         color: #fff;
         top: 1px;
       }
+    }
+    & >>> iframe {
+      width: 100%;
     }
   }
 }

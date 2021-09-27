@@ -61,7 +61,7 @@ export default {
   background-color: #f7f7fc;
   border-radius: 5px;
   padding: 20px;
-  margin-bottom: 40px;
+  margin: 40px 0 25px 0;
 }
 .title {
   font-size: 16px;
