@@ -518,7 +518,6 @@ export default {
     display: flex;
     flex-wrap: wrap;
     padding-top: 20px;
-    margin-bottom: -20px;
   }
 
   .breadcrumbList {

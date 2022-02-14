@@ -203,10 +203,10 @@ export default {
     font-size: 30px;
     font-weight: bold;
     margin: 40px 0 20px;
-    background-color: #eee;
+    background-color: rgba(255, 190, 118, 0.2);
     padding: 10px 20px;
     border-radius: 5px;
-    border: solid #385cae;
+    border: solid #f5841f;
     border-width: 0 0 0 6px;
   }
   .text {

@@ -537,12 +537,17 @@ export default {
   .title {
     font-size: 20px;
     font-weight: bold;
-    margin-top: 10px;
+    margin-top: 25px;
   }
 
   .description {
     color: #616269;
     font-size: 14px;
+    line-height: 1.8;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
   }
 }
 </style>

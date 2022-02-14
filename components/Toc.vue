@@ -61,7 +61,7 @@ export default {
   background-color: #f7f7fc;
   border-radius: 5px;
   padding: 20px;
-  margin: 40px 0 25px 0;
+  margin: 43px 0 25px 0;
 }
 .title {
   font-size: 16px;
@@ -127,5 +127,10 @@ export default {
 }
 .rotate-enter-active {
   animation: rotate 0.45s linear;
+}
+@media (max-width: 600px) {
+  .wrapper {
+    margin: 20px 0 25px 0;
+  }
 }
 </style>

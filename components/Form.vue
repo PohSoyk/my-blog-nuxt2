@@ -22,7 +22,7 @@
                   :error-messages="errors"
                   :counter="20"
                   autocomplete="name"
-                  color="#385cae"
+                  color="#f5841f"
                   label="お名前"
                   outlined
                   dense
@@ -38,7 +38,7 @@
                   name="email"
                   :error-messages="errors"
                   autocomplete="email"
-                  color="#385cae"
+                  color="#f5841f"
                   label="メールアドレス"
                   outlined
                   dense
@@ -54,7 +54,7 @@
                   name="message"
                   :error-messages="errors"
                   :counter="1000"
-                  color="#385cae"
+                  color="#f5841f"
                   label="お問い合わせ内容"
                   outlined
                   rows="5"
@@ -69,7 +69,7 @@
                   d-block
                   class="mt-2 mt-sm-0 mx-auto px-12 white--text"
                   x-large
-                  color="#385cae"
+                  color="#f5841f"
                   :loading="loading"
                   :disabled="invalid || !validated"
                   @click="onSubmit"

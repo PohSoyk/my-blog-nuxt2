@@ -35,7 +35,7 @@ export default {
 .breadcrumb {
   display: flex;
   flex-wrap: wrap;
-  padding-top: 20px;
+  padding-top: 12px;
 }
 
 .breadcrumbList {

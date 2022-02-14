@@ -17,17 +17,17 @@ export default {
 <style scoped>
 @media (min-width: 600px) {
   .post {
-    margin-top: 40px;
+    margin-top: 48px;
     font-size: 17px;
 
     & >>> h1 {
       font-size: 30px;
       font-weight: bold;
       margin: 40px 0 20px;
-      background-color: #eee;
+      background-color: rgba(255, 190, 118, 0.2);
       padding: 10px 20px;
       border-radius: 5px;
-      border: solid #385cae;
+      border: solid #f5841f;
       border-width: 0 0 0 6px;
     }
 
@@ -35,7 +35,29 @@ export default {
       font-size: 30px;
       font-weight: bold;
       margin: 40px 0 16px;
-      border-bottom: 1px solid #ddd;
+      position: relative;
+      padding: 5px 0 5px 25px;
+
+      &::before {
+        content: '';
+        left: 0;
+        position: absolute;
+        bottom: -1px;
+        width: 0;
+        height: 0;
+        border: none;
+        border-left: solid 15px transparent;
+        border-bottom: solid 15px rgba(255, 190, 118, 0.8);
+      }
+
+      &::after {
+        position: absolute;
+        content: '';
+        bottom: -1px;
+        left: 10px;
+        width: 100%;
+        border-bottom: solid 4px rgba(255, 190, 118, 0.8);
+      }
     }
 
     & >>> h3 {
@@ -173,16 +195,16 @@ export default {
 @media (max-width: 600px) {
   .post {
     font-size: 16px;
-    margin-top: 18px;
+    margin-top: 25px;
 
     & >>> h1 {
       font-size: 24px;
       font-weight: bold;
       margin: 40px 0 20px;
-      background-color: #eee;
+      background-color: rgba(255, 190, 118, 0.2);
       padding: 10px 20px;
       border-radius: 5px;
-      border: solid #385cae;
+      border: solid #f5841f;
       border-width: 0 0 0 5px;
     }
 

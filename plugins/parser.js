@@ -41,8 +41,13 @@ export default ({ app }, inject) => {
       $(elm).attr('data-src', elm.attribs.src)
       $(elm).removeAttr('src')
     })
+    $('h2').each((_, elm) => {
+      const text = $(elm).text()
+      $(elm).text('')
+      $(elm).prepend(`<span id="i">${text}</span>`)
+    })
     return {
-      html: $.html(),
+      html: $('body').html(),
       toc,
     }
   })
