@@ -11,7 +11,7 @@
             </nuxt-link>
           </li>
           <li class="breadcrumbList">
-            ポートフォリオ
+            プロフィール
           </li>
         </ul>
         <Prepare />
