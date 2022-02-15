@@ -31,7 +31,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .breadcrumb {
   display: flex;
   flex-wrap: wrap;
@@ -57,9 +57,11 @@ export default {
     margin: 0 10px;
   }
 
-  &:last-child&::after {
-    content: '';
-    margin: 0;
+  &:last-child {
+    &::after {
+      content: '';
+      margin: 0;
+    }
   }
 }
 

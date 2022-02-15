@@ -10,9 +10,7 @@
       </dd>
       <dd>
         <nuxt-link class="link" to="/">
-          <v-btn class="btn" outlined large color="#999">
-            Topページへ
-          </v-btn>
+          <v-btn class="btn" outlined large color="#999"> Topページへ </v-btn>
         </nuxt-link>
       </dd>
     </dl>

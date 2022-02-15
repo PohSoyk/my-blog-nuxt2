@@ -80,7 +80,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 @media (min-width: 800px) {
   .is-hidden {
     transform: translateY(-73px);

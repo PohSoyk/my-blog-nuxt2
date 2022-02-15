@@ -7,9 +7,7 @@
         <dd class="message">ページが見つかりません</dd>
         <dd>
           <v-btn class="btn" outlined large color="#999">
-            <nuxt-link class="link" to="/">
-              Topページへ
-            </nuxt-link>
+            <nuxt-link class="link" to="/"> Topページへ </nuxt-link>
           </v-btn>
         </dd>
       </dl>
@@ -46,7 +44,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .wrapper {
   display: flex;
   flex-direction: column;

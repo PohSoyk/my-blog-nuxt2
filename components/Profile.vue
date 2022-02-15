@@ -4,10 +4,10 @@
       <div class="avatar">
         <source
           type="image/webp"
-          src="https://images.microcms-assets.io/assets/26e0e403ee4244a49df93c05972f5999/b3dba0f1467d479896d3de7921bd4bf3/DSC_6532(1).jpg?fit=crop&w=160&h=160&fm=webp"
+          src="https://images.microcms-assets.io/assets/26e0e403ee4244a49df93c05972f5999/02c381d89ddd401e8cd4a305905ed9db/profile.jpg?fit=crop&w=160&h=160&fm=webp"
         />
         <img
-          src="https://images.microcms-assets.io/assets/26e0e403ee4244a49df93c05972f5999/b3dba0f1467d479896d3de7921bd4bf3/DSC_6532(1).jpg?fit=crop&w=160&h=160&fm=webp"
+          src="https://images.microcms-assets.io/assets/26e0e403ee4244a49df93c05972f5999/02c381d89ddd401e8cd4a305905ed9db/profile.jpg?fit=crop&w=160&h=160&fm=webp"
           class="image lazyload"
           alt
         />

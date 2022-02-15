@@ -14,13 +14,13 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 @media (min-width: 600px) {
   .post {
     margin-top: 40px;
     font-size: 17px;
 
-    & >>> h1 {
+    ::v-deep h1 {
       font-size: 30px;
       font-weight: bold;
       margin: 40px 0 20px;
@@ -31,32 +31,32 @@ export default {
       border-width: 0 0 0 6px;
     }
 
-    & >>> h2 {
+    ::v-deep h2 {
       font-size: 30px;
       font-weight: bold;
       margin: 40px 0 16px;
       border-bottom: 1px solid #ddd;
     }
 
-    & >>> h3 {
+    ::v-deep h3 {
       font-size: 24px;
       font-weight: bold;
       margin: 30px 0 12px;
     }
 
-    & >>> h4 {
+    ::v-deep h4 {
       font-size: 20px;
       font-weight: bold;
       margin: 24px 0 10px;
     }
 
-    & >>> h5 {
+    ::v-deep h5 {
       font-size: 18px;
       font-weight: bold;
       margin: 20px 0 6px;
     }
 
-    & >>> p {
+    ::v-deep p {
       line-height: 1.8;
       letter-spacing: 0.2px;
       padding: 0 0 1em;
@@ -73,11 +73,11 @@ export default {
       }
     }
 
-    & >>> em {
+    ::v-deep em {
       font-style: italic;
     }
 
-    & >>> ol {
+    ::v-deep ol {
       list-style-type: decimal;
       list-style-position: inside;
 
@@ -86,7 +86,7 @@ export default {
       }
     }
 
-    & >>> ul > li {
+    ::v-deep ul > li {
       line-height: 2;
 
       &::before {
@@ -95,29 +95,29 @@ export default {
       }
     }
 
-    & >>> img {
+    ::v-deep img {
       max-width: 100%;
       margin: 40px 0;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
-    & >>> a {
+    ::v-deep a {
       color: var(--color-purple);
       text-decoration: underline;
       word-wrap: break-word;
       word-break: break-all;
     }
 
-    & >>> a:hover {
+    ::v-deep a:hover {
       text-decoration: none;
     }
 
-    & >>> strong {
+    ::v-deep strong {
       background: linear-gradient(transparent 75%, #ffe0c1 75%);
       font-weight: bold;
     }
 
-    & >>> blockquote {
+    ::v-deep blockquote {
       background: url('/images/icon_quote.svg') no-repeat 20px 10px, #eee;
       background-size: 36px 36px;
       padding: 50px 20px 20px;
@@ -125,7 +125,7 @@ export default {
       border-radius: 3px;
     }
 
-    & >>> pre {
+    ::v-deep pre {
       border-radius: 3px;
       margin: 20px 0;
       white-space: pre-wrap;
@@ -139,7 +139,7 @@ export default {
           Courier, monospace;
       }
     }
-    & >>> .frame {
+    ::v-deep .frame {
       margin-bottom: 1.2em;
       position: relative;
 
@@ -172,7 +172,7 @@ export default {
     font-size: 16px;
     margin-top: 18px;
 
-    & >>> h1 {
+    ::v-deep h1 {
       font-size: 24px;
       font-weight: bold;
       margin: 40px 0 20px;
@@ -183,32 +183,32 @@ export default {
       border-width: 0 0 0 5px;
     }
 
-    & >>> h2 {
+    ::v-deep h2 {
       font-size: 24px;
       font-weight: bold;
       margin: 36px 0 16px;
       border-bottom: 1px solid #ddd;
     }
 
-    & >>> h3 {
+    ::v-deep h3 {
       font-size: 20px;
       font-weight: bold;
       margin: 30px 0 12px;
     }
 
-    & >>> h4 {
+    ::v-deep h4 {
       font-size: 16px;
       font-weight: bold;
       margin: 24px 0 10px;
     }
 
-    & >>> h5 {
+    ::v-deep h5 {
       font-size: 14px;
       font-weight: bold;
       margin: 20px 0 6px;
     }
 
-    & >>> p {
+    ::v-deep p {
       line-height: 1.8;
       letter-spacing: 0.2px;
       padding: 0 0 1em;
@@ -223,11 +223,11 @@ export default {
       }
     }
 
-    & >>> em {
+    ::v-deep em {
       font-style: italic;
     }
 
-    & >>> ol {
+    ::v-deep ol {
       list-style-type: decimal;
       list-style-position: inside;
 
@@ -236,7 +236,7 @@ export default {
       }
     }
 
-    & >>> ul > li {
+    ::v-deep ul > li {
       line-height: 2;
 
       &::before {
@@ -245,25 +245,25 @@ export default {
       }
     }
 
-    & >>> img {
+    ::v-deep img {
       max-width: 100%;
       margin: 40px 0;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
-    & >>> a {
+    ::v-deep a {
       color: #331cbf;
       text-decoration: underline;
       word-wrap: break-word;
       word-break: break-all;
     }
 
-    & >>> strong {
+    ::v-deep strong {
       background: linear-gradient(transparent 75%, #ffe0c1 75%);
       font-weight: bold;
     }
 
-    & >>> blockquote {
+    ::v-deep blockquote {
       background: url('/images/icon_quote.svg') no-repeat 20px 10px, #eee;
       background-size: 36px 36px;
       padding: 50px 20px 20px;
@@ -271,7 +271,7 @@ export default {
       border-radius: 3px;
     }
 
-    & >>> pre {
+    ::v-deep pre {
       border-radius: 3px;
       margin: 20px 0;
       white-space: pre-wrap;
@@ -285,7 +285,7 @@ export default {
           Courier, monospace;
       }
     }
-    & >>> .frame {
+    ::v-deep .frame {
       margin-bottom: 1.2em;
       position: relative;
 

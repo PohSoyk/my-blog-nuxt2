@@ -199,7 +199,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .category {
   display: inline-block;
   padding: 2px 10px;
@@ -563,9 +563,11 @@ export default {
       margin: 0 10px;
     }
 
-    &:last-child&::after {
-      content: '';
-      margin: 0;
+    &:last-child {
+      &::after {
+        content: '';
+        margin: 0;
+      }
     }
   }
 

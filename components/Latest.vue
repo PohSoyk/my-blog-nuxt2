@@ -33,7 +33,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 @media (min-width: 1160px) {
   .wrapper {
     position: sticky !important;

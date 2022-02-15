@@ -34,7 +34,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 @media (min-width: 1160px) {
   .wrapper {
     padding-bottom: 40px;

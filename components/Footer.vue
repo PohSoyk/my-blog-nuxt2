@@ -28,7 +28,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 @media (min-width: 600px) {
   .footer {
     position: relative;

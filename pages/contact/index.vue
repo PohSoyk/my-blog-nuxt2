@@ -10,11 +10,9 @@
               記事一覧
             </nuxt-link>
           </li>
-          <li class="breadcrumbList">
-            お問い合わせ
-          </li>
+          <li class="breadcrumbList">お問い合わせ</li>
         </ul>
-        <h1 class="title">お問い合わせフォーム</h1>
+        <h1 class="title">PoSo's Note へのお問い合わせ</h1>
         <p class="text">
           当ブログへのご意見・ご感想・ご要望などのお問い合わせは下記フォームよりお願い致します。<br /><br />
           制作依頼、質問、応援メッセージなどなど…何でもござれ！
@@ -97,7 +95,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .breadcrumb {
   display: flex;
   flex-wrap: wrap;
@@ -192,9 +190,11 @@ export default {
       margin: 0 10px;
     }
 
-    &:last-child&::after {
-      content: '';
-      margin: 0;
+    &:last-child {
+      &::after {
+        content: '';
+        margin: 0;
+      }
     }
   }
 
@@ -307,9 +307,11 @@ export default {
       margin: 0 10px;
     }
 
-    &:last-child&::after {
-      content: '';
-      margin: 0;
+    &:last-child {
+      &::after {
+        content: '';
+        margin: 0;
+      }
     }
   }
 
@@ -469,9 +471,11 @@ export default {
       margin: 0 10px;
     }
 
-    &:last-child&::after {
-      content: '';
-      margin: 0;
+    &:last-child {
+      &::after {
+        content: '';
+        margin: 0;
+      }
     }
   }
 

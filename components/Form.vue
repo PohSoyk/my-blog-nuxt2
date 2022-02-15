@@ -17,7 +17,7 @@
                 rules="required|max:20"
               >
                 <v-text-field
-                  v-model="name"
+                  v-model="userName"
                   name="name"
                   :error-messages="errors"
                   :counter="20"
@@ -115,7 +115,7 @@ export default {
     ValidationProvider,
   },
   data: () => ({
-    name: '',
+    userName: '',
     email: '',
     message: '',
     botField: '',
@@ -130,7 +130,7 @@ export default {
       this.loading = true
       const params = new URLSearchParams()
       params.append('form-name', 'contact')
-      params.append('name', this.name)
+      params.append('name', this.userName)
       params.append('email', this.email)
       params.append('message', this.message)
       if (this.botField) {
@@ -142,7 +142,7 @@ export default {
           this.snackbarText = 'お問い合わせを送信しました！'
           this.snackbar = true
           this.loading = false
-          this.name = this.email = this.message = ''
+          this.userName = this.email = this.message = ''
           this.$refs.obs.reset()
         })
         .catch(() => {

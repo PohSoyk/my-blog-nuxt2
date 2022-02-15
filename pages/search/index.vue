@@ -181,7 +181,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .search {
   border: 1px solid var(--color-border);
   width: 100%;

@@ -10,9 +10,7 @@
               記事一覧
             </nuxt-link>
           </li>
-          <li class="breadcrumbList">
-            プロフィール
-          </li>
+          <li class="breadcrumbList">プロフィール</li>
         </ul>
         <Prepare />
       </div>
@@ -91,7 +89,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .breadcrumb {
   display: flex;
   flex-wrap: wrap;
@@ -186,9 +184,11 @@ export default {
       margin: 0 10px;
     }
 
-    &:last-child&::after {
-      content: '';
-      margin: 0;
+    &:last-child {
+      &::after {
+        content: '';
+        margin: 0;
+      }
     }
   }
 
@@ -301,9 +301,11 @@ export default {
       margin: 0 10px;
     }
 
-    &:last-child&::after {
-      content: '';
-      margin: 0;
+    &:last-child {
+      &::after {
+        content: '';
+        margin: 0;
+      }
     }
   }
 
@@ -463,9 +465,11 @@ export default {
       margin: 0 10px;
     }
 
-    &:last-child&::after {
-      content: '';
-      margin: 0;
+    &:last-child {
+      &::after {
+        content: '';
+        margin: 0;
+      }
     }
   }
 

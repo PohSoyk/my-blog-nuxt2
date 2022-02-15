@@ -70,7 +70,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 @media (min-width: 820px) {
   .share {
     width: 24px;
