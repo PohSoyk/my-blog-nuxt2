@@ -16,12 +16,14 @@
     "cheerio": "^1.0.0-rc.3",
     "dotenv": "^9.0.2",
     "encoding": "^0.1.13",
+    "fibers": "^5.0.1",
     "highlight.js": "^10.0.0",
     "microcms-js-sdk": "^2.0.0",
     "nodemailer": "^6.6.0",
     "nuxt": "^2.15.4",
     "nuxt-microcms-module": "^1.0.1",
-    "ogp-parser": "^0.5.6"
+    "ogp-parser": "^0.5.6",
+    "sass": "^1.49.7"
   },
   "devDependencies": {
     "@mdi/js": "^5.9.55",
@@ -45,6 +47,7 @@
     "postcss-import": "^12.0.1",
     "postcss-nested": "^4.1.2",
     "prettier": "^2.0.5",
+    "sass-loader": "^10.2.1",
     "vee-validate": "^3.4.5",
     "vue-scrollto": "^2.17.1"
   }

@@ -1,5 +1,7 @@
 import { client } from './utils/microcms'
 const { API_KEY, GA_ID } = process.env
+const Sass = require('sass')
+const Fiber = require('fibers')
 
 export default {
   target: 'static',
@@ -23,7 +25,7 @@ export default {
         hid: 'description',
         name: 'description',
         content:
-          '未経験からエンジニア転職を成功させた筆者が、IT技術、プログラミング、アプリ開発の情報を中心に発信中。人生で得たスキルや知識のアウトプットを行うブログです。',
+          '高卒フリーターからエンジニア就職を成功させた筆者が、IT技術、プログラミング、WEB制作の情報を中心に発信中。人生で得たスキルや知識のアウトプットを行うブログです。',
       },
       {
         hid: 'og:site_name',
@@ -41,7 +43,7 @@ export default {
         hid: 'og:description',
         property: 'og:description',
         content:
-          '未経験からエンジニア転職を成功させた筆者が、プログラミング、アプリ開発の情報を中心に発信中。人生で得たスキルや知識のアウトプットを行うブログです。',
+          '高卒フリーターからエンジニア就職を成功させた筆者が、プログラミング、WEB制作の情報を中心に発信中。人生で得たスキルや知識のアウトプットを行うブログです。',
       },
       {
         hid: 'og:image',
@@ -193,6 +195,14 @@ export default {
       }
     },
     transpile: ['vee-validate/dist/rules'],
+    loaders: {
+      scss: {
+        implementation: Sass,
+        sassOptions: {
+          fiber: Fiber,
+        },
+      },
+    },
   },
   router: {
     extendRoutes(routes, resolve) {
@@ -365,7 +375,7 @@ export default {
           title: "PoSo's Note",
           link: 'https://posonote.com/feed.xml',
           description:
-            '未経験からエンジニア転職を成功させた筆者が、IT技術、プログラミング、アプリ開発の情報を中心に発信中。人生で得たスキルや知識のアウトプットを行うブログです。',
+            '高卒フリーターからエンジニア就職を成功させた筆者が、IT技術、プログラミング、WEB制作の情報を中心に発信中。人生で得たスキルや知識のアウトプットを行うブログです。',
         }
 
         const posts = await client
