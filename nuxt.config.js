@@ -1,7 +1,7 @@
+import { Sass } from 'sass'
+import { Fiber } from 'fibers'
 import { client } from './utils/microcms'
 const { API_KEY, GA_ID } = process.env
-const Sass = require('sass')
-const Fiber = require('fibers')
 
 export default {
   target: 'static',
@@ -69,8 +69,7 @@ export default {
     ],
     script: [
       {
-        src:
-          'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/lazysizes.min.js',
+        src: 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/lazysizes.min.js',
         async: true,
       },
       { src: 'https://cdn.iframe.ly/embed.js', async: true },
